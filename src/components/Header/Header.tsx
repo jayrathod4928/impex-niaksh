@@ -37,9 +37,57 @@ const Header = () => {
                 </div>
 
                 {/* Desktop Nav */}
+                {/* Desktop Nav */}
                 <nav className="hidden lg:flex items-center space-x-2">
-                    <Link href="/" className={`${styles.navLink} ${styles.active} cursor-pointer`}>HOME</Link>
-                    {/* ... (Desktop remains as provided) */}
+                    <Link href="/" className={`${styles.navLink} ${styles.active}`}>HOME</Link>
+
+                    {/* ABOUT DROPDOWN */}
+                    <div className={styles.dropdownContainer}>
+                        <div className={styles.navLink}>
+                            ABOUT <ChevronDown size={14} className="ml-1" />
+                        </div>
+                        <div className={styles.dropdownMenu}>
+                            <Link href="/company">Company</Link>
+                            <Link href="/certification">Certification</Link>
+                            <Link href="/key-person">Key Person</Link>
+                        </div>
+                    </div>
+
+                    <Link href="/sourcing" className={styles.navLink}>SOURCING AGENT</Link>
+
+                    {/* PRODUCTS DROPDOWN (Multi-level) */}
+                    <div className={styles.dropdownContainer}>
+                        <div className={styles.navLink}>
+                            PRODUCTS <ChevronDown size={14} className="ml-1" />
+                        </div>
+                        <div className={styles.dropdownMenu}>
+                            {/* Level 2: Nested Food Products */}
+                            <div className={styles.nestedTrigger}>
+                                <div className={styles.nestedHeader}>
+                                    <span>Food Products</span>
+                                    <ChevronRight size={14} />
+                                </div>
+                                {/* Level 3: Food Items */}
+                                <div className={styles.subMenu}>
+                                    <Link href="/products/fruits">Fruits & Vegetables</Link>
+                                    <Link href="/products/grocery">Grocery</Link>
+                                    <Link href="/products/spices">Spices</Link>
+                                    <Link href="/products/namkeen">Namkeen & Frozen</Link>
+                                </div>
+                            </div>
+
+                            <Link href="/products/garments">Garments</Link>
+                            <Link href="/products/leather">Leather Products</Link>
+                            <Link href="/products/jewellery">Imitation Jewellery</Link>
+                            <Link href="/products/handicraft">Handicraft</Link>
+                            <Link href="/products/furniture">Furniture</Link>
+                            <Link href="/products/ceramic">Ceramic & Stone</Link>
+                        </div>
+                    </div>
+
+                    <Link href="/gallery" className={styles.navLink}>GALLERY</Link>
+                    <Link href="/blog" className={styles.navLink}>BLOG</Link>
+                    <Link href="/contact" className={styles.navLink}>CONTACT US</Link>
                 </nav>
 
                 <button className="lg:hidden text-white cursor-pointer" onClick={() => setIsMobileMenuOpen(true)}>
