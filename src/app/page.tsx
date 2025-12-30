@@ -1,9 +1,12 @@
-import Image from "next/image";
+import HeroSlider from "@/components/HeroSlider/HeroSlider";
+import AboutSection from "@/components/AboutSection/AboutSection";
+import ScrollReveal from "@/components/ScrollReveal/ScrollReveal";
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center font-sans">
-      Hello world
-    </div>
+    <>
+      <HeroSlider />
+        <ScrollReveal><AboutSection /></ ScrollReveal>
+    </>
   );
 }

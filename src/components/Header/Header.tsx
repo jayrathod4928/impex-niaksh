@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { ChevronDown, ChevronRight, Menu, X } from 'lucide-react';
+import { ChevronDown, ChevronRight, Menu } from 'lucide-react';
 import styles from './Header.module.scss';
 import logo from '@/components/Images/Nipl-logo.png';
 
@@ -99,8 +99,8 @@ const Header = () => {
 
             <div className={`${styles.mobileMenu} ${isMobileMenuOpen ? styles.open : ''}`}>
                 <div className={`${styles.drawerContent} h-full overflow-y-auto [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden`}>
-                    <div className="flex justify-center mb-6">
-                        <Image src={logo} alt="Logo" width={130} height={40} className="h-35 w-auto" />
+                    <div className="flex justify-center">
+                        <Image src={logo} alt="Logo" className="h-25 w-auto" />
                     </div>
 
                     <nav className={styles.mobileNav}>
