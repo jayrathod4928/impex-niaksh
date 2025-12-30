@@ -32,7 +32,7 @@ const Header = () => {
             <div className="max-w-300 mx-auto px-20 h-full flex items-center justify-between">
                 <div className={styles.logoContainer}>
                     <Link href="/" className="cursor-pointer">
-                        <Image src={logo} alt="Nipl-logo" width={100} height={10} priority className="h-30 w-auto object-contain" />
+                        <Image src={logo} alt="Nipl-logo" width={100} height={10} priority className="h-20 w-auto object-contain" />
                     </Link>
                 </div>
 

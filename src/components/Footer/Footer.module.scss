@@ -1,0 +1,15 @@
+.footerLink {
+  position: relative;
+  transition: all 0.3s ease;
+
+  &:hover {
+    padding-left: 10px;
+    color: #fff;
+    &::before {
+      content: '»';
+      position: absolute;
+      left: -15px;
+      color: #ff8c00;
+    }
+  }
+}

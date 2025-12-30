@@ -1,9 +1,8 @@
 .container {
   position: relative;
 
-  // Premium background watermark
   &::before {
-    content: 'Nipl';
+    content: '';
     position: absolute;
     top: -30px;
     right: -10px;
@@ -13,31 +12,26 @@
     z-index: 0;
     pointer-events: none;
     white-space: nowrap;
+    // Hide on mobile/tablet if it's too distracting
+    @media (max-width: 1024px) {
+      opacity: 0.5;
+      font-size: 8rem;
+    }
   }
-}
+  .imageWrapper {
+    // Ensures the image doesn't grow infinitely tall on massive monitors
+    max-height: 600px;
+    position: relative;
 
-.imageWrapper {
-  position: relative;
-  height: 100%;
-  width: 100%;
-
-  // Decorative wood-style texture background element
-  &::after {
-    content: '';
-    position: absolute;
-    top: 5%;
-    left: -3%;
-    width: 100%;
-    height: 100%;
-    background: repeating-linear-gradient(
-                    90deg,
-                    #f8fafc 0px,
-                    #f8fafc 20px,
-                    #ffffff 20px,
-                    #ffffff 40px
-    );
-    z-index: -1;
-    border-radius: 1rem;
-    opacity: 0.8;
+    // Optional: Add a soft "glow" effect behind the image
+    &::after {
+      content: '';
+      position: absolute;
+      inset: -1px;
+      background: linear-gradient(45deg, rgba(234, 88, 12, 0.1), rgba(29, 78, 216, 0.1));
+      z-index: -1;
+      border-radius: 1rem;
+      filter: blur(20px);
+    }
   }
 }
