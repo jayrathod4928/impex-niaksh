@@ -1,0 +1,88 @@
+.testimonialSection {
+  position: relative;
+  overflow: hidden;
+  background: radial-gradient(circle at top right, #1a2a3a 0%, #0a0f14 100%);
+  padding: 100px 0;
+}
+
+.bgOverlay {
+  position: absolute;
+  inset: 0;
+  background-image: url('https://images.unsplash.com/photo-1494412519320-aa613dfb7738?q=80&w=2000&auto=format&fit=crop');
+  background-size: cover;
+  background-position: center;
+  opacity: 0.08;
+  mix-blend-mode: overlay;
+  pointer-events: none;
+}
+
+.navButton {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 20;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: white;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  cursor: pointer;
+
+  &:hover {
+    background: #3b82f6; // blue-500
+    border-color: #3b82f6;
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.4);
+  }
+
+  // Hide on small mobile to avoid overlapping content
+  @media (max-width: 640px) {
+    display: none;
+  }
+}
+
+.embla {
+  overflow: hidden;
+  width: 100%;
+}
+
+.emblaContainer {
+  display: flex;
+  backface-visibility: hidden;
+}
+
+.emblaSlide {
+  flex: 0 0 100%;
+  min-width: 0;
+  padding: 0 15px;
+  margin-top: 20px;
+
+  @media (min-width: 768px) {
+    flex: 0 0 50%;
+  }
+
+  @media (min-width: 1024px) {
+    flex: 0 0 33.33%;
+  }
+}
+
+.glassCard {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), border-color 0.3s ease;
+
+  &:hover {
+    border-color: rgba(59, 130, 246, 0.4);
+    transform: translateY(-12px) scale(1.02);
+  }
+}
