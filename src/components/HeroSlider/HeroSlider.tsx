@@ -17,37 +17,9 @@ const SLIDES = [
         id: 1,
         title: "Welcome To NIP Export Import Pvt. Ltd.",
         subtitle: "We Are here to Export",
-        image: "https://images.unsplash.com/photo-1577705998148-6da4f3963bc8?q=80&w=2000",
-        link: "/about"
-    },
-    {
-        id: 2,
-        title: "Global Logistics Redefined",
-        subtitle: "Premium Import & Export Solutions",
         image: "http://oesexportimport.com/wp-content/uploads/2024/11/165.webp",
         link: "/services/logistics"
     },
-    {
-        id: 3,
-        title: "Indian Spices",
-        subtitle: "We Are here to Export",
-        image: "https://oesexportimport.com/wp-content/uploads/2024/11/Spices.jpg",
-        link: "/services/global-trade"
-    },
-    {
-        id: 4,
-        title: "Furniture Products",
-        subtitle: "We Are here to Export",
-        image: "https://oesexportimport.com/wp-content/uploads/2024/12/Furniture.jpg",
-        link: "/services/global-trade"
-    },
-    {
-        id: 5,
-        title: "Imitation Jewellery",
-        subtitle: "We Are here to Export",
-        image: "https://oesexportimport.com/wp-content/uploads/2024/12/Imitations.jpg",
-        link: "/services/global-trade"
-    }
 ];
 
 const HeroSlider = () => {

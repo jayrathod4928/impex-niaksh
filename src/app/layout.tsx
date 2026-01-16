@@ -20,20 +20,18 @@ export const metadata: Metadata = {
     description: "Leading sourcing agent for food, garments, and more.",
 };
 
+// layout.tsx
 export default function RootLayout({ children }: { children: React.ReactNode }) {
     return (
         <html lang="en">
         <body className={`${geistSans.variable} ${geistMono.variable} antialiased flex flex-col min-h-screen`}>
         <Header />
 
-        {/* Main content area */}
-        <ScrollReveal>
-            <main className="flex-grow">
-                {children}
-            </main>
-        </ScrollReveal>
+        {/* REMOVED ScrollReveal from here so content is always visible to the browser */}
+        <main className="flex-grow">
+            {children}
+        </main>
 
-        {/* Footer component */}
         <Footer />
         </body>
         </html>

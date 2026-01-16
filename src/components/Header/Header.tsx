@@ -11,13 +11,15 @@ const Header = () => {
     const [openSubMenu, setOpenSubMenu] = useState(null); // Level 1 (About, Products)
     const [openNestedMenu, setOpenNestedMenu] = useState(null); // Level 2 (Food Products)
 
-    const toggleSubMenu = (menu) => {
+    const toggleSubMenu = (menu: string | React.SetStateAction<null>) => {
+        // @ts-expect-error
         setOpenSubMenu(openSubMenu === menu ? null : menu);
         setOpenNestedMenu(null); // Reset deep nest when parent toggles
     };
 
-    const toggleNestedMenu = (e, menu) => {
+    const toggleNestedMenu = (e: React.MouseEvent<HTMLDivElement, MouseEvent>, menu: string | React.SetStateAction<null>) => {
         e.stopPropagation();
+        // @ts-expect-error
         setOpenNestedMenu(openNestedMenu === menu ? null : menu);
     };
 

@@ -1,114 +1,78 @@
 "use client";
 
 import React from 'react';
-import { motion, Variants } from 'framer-motion';
-import styles from './AboutSection.module.scss';
-import Image from "next/image";
+import ContentShowcase from "@/components/ContentShowcase/ContentShowcase";
+import WhatWeDo from "@/components/WhatWeDo/WhatWeDo"; // Adjust the import path as needed
 
 const AboutSection = () => {
-    const containerVariants: Variants = {
-        hidden: { opacity: 0, y: 30 },
-        visible: {
-            opacity: 1,
-            y: 0,
-            transition: {
-                duration: 0.8,
-                ease: "easeOut",
-                staggerChildren: 0.2
-            }
-        }
-    };
-
-    const itemVariants: Variants = {
-        hidden: { opacity: 0, y: 20 },
-        visible: {
-            opacity: 1,
-            y: 0,
-            transition: { duration: 0.5 }
-        }
+    const aboutData = {
+        title: "About Nipl",
+        imageSrc: "https://oesexportimport.com/wp-content/uploads/2020/07/OES-Desk.jpg",
+        imageAlt: "Nipl Office Reception and Wooden Handicrafts",
+        points: [
+            "Nipl Export Import Pvt Ltd has created its own goodwill and a global reputation as primary exporters of Wooden Handicrafts.",
+            "Specializing in glass items, handmade products, and premium wooden temples characterized by elegance and style.",
+            "Well-established global clientele with a deep understanding of quality and timely delivery in the international market.",
+            "Our products meet superior quality standards, ensuring elegance and style for every client."
+        ]
     };
 
     return (
-        <section className={`py-12 md:py-20 lg:py-24 bg-white overflow-hidden relative ${styles.container}`}>
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-                {/* flex-col: mobile/tablet (column)
-                    lg:flex-row: desktop (side-by-side)
-                */}
-                <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
-
-                    {/* Left Content Side */}
-                    <motion.div
-                        className="flex-1 space-y-6 w-full text-center lg:text-left"
-                        initial="hidden"
-                        whileInView="visible"
-                        viewport={{ once: true, margin: "-100px" }}
-                        variants={containerVariants}
-                    >
-                        <motion.div variants={itemVariants} className="inline-flex items-center space-x-4">
-                            <div className="h-[2px] w-8 md:w-12 bg-orange-500"></div>
-                            <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-slate-900 uppercase">
-                                About <span className="text-orange-600">Nipl</span>
-                            </h2>
-                            <div className="h-[2px] w-8 md:w-12 bg-blue-700"></div>
-                        </motion.div>
-
-                        <motion.div variants={itemVariants} className="space-y-4 text-slate-600 leading-relaxed text-sm md:text-lg">
-                            <p className="font-semibold text-slate-800 text-lg md:text-2xl">
-                                Welcome to Nipl Export Import PVT Ltd.
-                            </p>
-                            <p className="max-w-3xl mx-auto lg:mx-0">
-                                Nipl Export Import Pvt Ltd has created its own goodwill and a global reputation.
-                                We are primarily exporters of all <span className="text-blue-700 font-medium underline decoration-orange-500/30 underline-offset-4">Wooden Handicraft products</span>,
-                                glass items, handmade products, and premium wooden temples.
-                            </p>
-                            <p className="max-w-3xl mx-auto lg:mx-0">
-                                The products are of elegance, style, and superior quality. We have a
-                                well-established global clientele, understanding the importance of
-                                <strong className="text-slate-900"> Quality and Timely Delivery</strong> in this competitive
-                                international business scenario.
-                            </p>
-                        </motion.div>
-
-                        <motion.div
-                            variants={itemVariants}
-                            className="grid grid-cols-2 gap-8 pt-8 border-t border-slate-200"
-                        >
-                            <div className="group cursor-default">
-                                <h4 className="text-orange-600 font-bold text-2xl md:text-3xl mb-1 transition-transform group-hover:translate-x-1">Global</h4>
-                                <p className="text-xs uppercase tracking-[0.2em] text-slate-400 font-bold">Clientele</p>
-                            </div>
-                            <div className="group cursor-default">
-                                <h4 className="text-blue-800 font-bold text-2xl md:text-3xl mb-1 transition-transform group-hover:translate-x-1">Premium</h4>
-                                <p className="text-xs uppercase tracking-[0.2em] text-slate-400 font-bold">Quality Standards</p>
-                            </div>
-                        </motion.div>
-                    </motion.div>
-
-                    {/* Right Image Side */}
-                    <motion.div
-                        className="flex-1 relative w-full aspect-[16/10] md:aspect-[16/9] lg:aspect-[4/3] xl:aspect-[16/10]"
-                        initial={{ opacity: 0, x: 20 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 1, ease: "easeOut" }}
-                    >
-                        <div className={`relative h-full w-full overflow-hidden rounded-2xl shadow-2xl ${styles.imageWrapper}`}>
-                            {/* Subtle overlay to make it look premium */}
-                            <div className="absolute inset-0 bg-slate-900/5 z-10 pointer-events-none" />
-
-                            <Image
-                                src="https://oesexportimport.com/wp-content/uploads/2020/07/OES-Desk.jpg"
-                                alt="Nipl Office Reception"
-                                fill
-                                sizes="(max-width: 768px) 100vw, 50vw"
-                                className="object-cover object-center transition-transform duration-700 hover:scale-105"
-                                priority
-                            />
-                        </div>
-                    </motion.div>
+        <>
+    <div className="relative">
+            {/* Custom Header Section (Optional, if you want to keep your specific underline style) */}
+            <div className="pt-12 md:pt-20 bg-white text-center">
+                <div className="inline-flex items-center space-x-4">
+                    <div className="h-[2px] w-8 md:w-12 bg-orange-500"></div>
+                    <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-slate-900 uppercase">
+                        Welcome to <span className="text-orange-600">Nipl</span>
+                    </h2>
+                    <div className="h-[2px] w-8 md:w-12 bg-blue-700"></div>
                 </div>
             </div>
-        </section>
+
+            {/* Reusable Showcase Component */}
+            <ContentShowcase
+                title={aboutData.title}
+                points={aboutData.points}
+                imageSrc={aboutData.imageSrc}
+                imageAlt={aboutData.imageAlt}
+                reverse={false} // Change to true if you want the image on the right
+            />
+
+            {/* Statistical/Feature Grid (Preserved from your original design) */}
+            <section className="bg-white pb-12 md:pb-20">
+                <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-16">
+                    {/* Container for centering the grid */}
+                    <div className="flex justify-center border-t border-slate-100">
+                        <div className="grid grid-cols-2 gap-12 md:gap-24">
+
+                            {/* Global Clientele Item */}
+                            <div className="group cursor-default text-center">
+                                <h4 className="text-orange-600 font-bold text-2xl md:text-3xl mb-1 transition-transform group-hover:scale-105">
+                                    Global
+                                </h4>
+                                <p className="text-xs uppercase tracking-[0.2em] text-slate-400 font-bold">
+                                    Clientele
+                                </p>
+                            </div>
+
+                            {/* Premium Standards Item */}
+                            <div className="group cursor-default text-center">
+                                <h4 className="text-blue-800 font-bold text-2xl md:text-3xl mb-1 transition-transform group-hover:scale-105">
+                                    Premium
+                                </h4>
+                                <p className="text-xs uppercase tracking-[0.2em] text-slate-400 font-bold">
+                                    Quality Standards
+                                </p>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+        </>
     );
 };
 

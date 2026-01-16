@@ -13,7 +13,7 @@ import {
 import logo from '@/components/Images/Nipl-logo.png';
 
 const Footer = () => {
-    const [currentYear, setCurrentYear] = useState<number>(2024);
+    const [currentYear, setCurrentYear] = useState<number>(2026);
 
     useEffect(() => {
         setCurrentYear(new Date().getFullYear());
@@ -34,16 +34,16 @@ const Footer = () => {
     };
 
     return (
-        <footer className="bg-[#1a202c] text-white pt-16 pb-8 px-4 md:px-8 lg:px-24 font-sans border-t border-gray-800">
+        /** * FIX APPLIED:
+         * 1. Added 'relative' and 'z-[100]' to ensure it stays above the fixed background image.
+         * 2. Ensured 'bg-[#1a202c]' is solid so the background image doesn't show through.
+         */
+        <footer className="relative z-[100] bg-[#1a202c] text-white pt-16 pb-8 px-4 md:px-8 lg:px-24 font-sans border-t border-gray-800">
             <motion.div
-                /* Responsiveness Logic:
-                   - grid-cols-1: Mobile (stacked)
-                   - md:grid-cols-4: Tablet & Desktop (4 columns)
-                */
                 className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-10 md:gap-4 lg:gap-8"
                 initial="hidden"
                 whileInView="visible"
-                viewport={{ once: true }}
+                viewport={{ once: true, amount: 0.1 }}
                 variants={containerVariants}
             >
                 {/* Brand Section */}
