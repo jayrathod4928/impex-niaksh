@@ -3,6 +3,7 @@
 import React from 'react';
 import { motion, Variants } from 'framer-motion';
 import styles from './Certification.module.scss';
+import PremiumBanner from '@/components/PremiumHeader/PremiumHeader'; // Adjust path as needed
 
 const Certification: React.FC = () => {
 
@@ -31,34 +32,12 @@ const Certification: React.FC = () => {
 
     return (
         <section className={`${styles.certificationSection} relative overflow-hidden bg-white w-full`}>
-            {/* Minimalist Header Banner */}
-            <div className="w-full bg-[#0a0a0a] flex flex-col items-center justify-center py-32 md:py-40">
-                <motion.span
-                    initial={{ opacity: 0, letterSpacing: "1em" }}
-                    whileInView={{ opacity: 0.5, letterSpacing: "0.5em" }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 1.5 }}
-                    className="text-[#c5a059] uppercase text-[10px] md:text-xs mb-6 ml-[0.5em]"
-                >
-                    Global Accreditation
-                </motion.span>
-                <motion.h2
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
-                    className={`${styles.premiumSerif} text-white text-4xl md:text-7xl uppercase font-light text-center px-4 tracking-tight`}
-                >
-                    Certification
-                </motion.h2>
-                <motion.div
-                    initial={{ width: 0 }}
-                    whileInView={{ width: "60px" }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 1.5, delay: 0.5 }}
-                    className="h-[1px] bg-[#c5a059] mt-10 opacity-60"
-                ></motion.div>
-            </div>
+
+            {/* Reusable Common Component */}
+            <PremiumBanner
+                subtitle="Global Accreditation"
+                title="Certification"
+            />
 
             {/* Centered Content Area */}
             <div className="max-w-5xl mx-auto px-6 py-32 md:py-32 text-center">

@@ -25,16 +25,22 @@ const AccreditationGallery: React.FC = () => {
         hidden: { opacity: 0 },
         visible: {
             opacity: 1,
-            transition: { staggerChildren: 0.1, delayChildren: 0.2 }
+            transition: {
+                staggerChildren: 0.15, // Delay between each card appearing
+                delayChildren: 0.2,
+            }
         }
     };
 
-    const itemVariants: Variants = {
+    const cardVariants: Variants = {
         hidden: { opacity: 0, y: 30 },
         visible: {
             opacity: 1,
             y: 0,
-            transition: { duration: 0.8, ease: [0.19, 1, 0.22, 1] }
+            transition: {
+                duration: 0.6,
+                ease: [0.16, 1, 0.3, 1] // Custom "premium" cubic-bezier ease
+            }
         }
     };
 
@@ -42,11 +48,11 @@ const AccreditationGallery: React.FC = () => {
         <section className={`${styles.gallerySection} bg-white py-24 md:py-32 overflow-hidden`}>
             <div className="max-w-7xl mx-auto px-6 text-center">
 
-                {/* Optional Header - Keep if needed, otherwise remove */}
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
+                    transition={{ duration: 0.6 }}
                     className="mb-16"
                 >
                     <h2 className="text-3xl md:text-5xl font-bold text-[#1e3a8a] mb-4">Our Accreditations</h2>
@@ -63,7 +69,7 @@ const AccreditationGallery: React.FC = () => {
                     {certifications.map((cert) => (
                         <motion.div
                             key={cert.id}
-                            variants={itemVariants}
+                            variants={cardVariants}
                             whileHover={{
                                 y: -10,
                                 borderColor: '#c5a059',
@@ -71,7 +77,6 @@ const AccreditationGallery: React.FC = () => {
                             }}
                             className="group relative bg-white border border-gray-100 p-6 md:p-10 flex flex-col items-center justify-center transition-all duration-500 rounded-sm"
                         >
-                            {/* Image Container with Hover Scale */}
                             <motion.div
                                 whileHover={{ scale: 1.1 }}
                                 transition={{ type: "spring", stiffness: 300 }}
@@ -86,14 +91,12 @@ const AccreditationGallery: React.FC = () => {
                                 />
                             </motion.div>
 
-                            {/* Label with accent hover */}
                             <div className="w-full border-t border-gray-50 pt-6">
                                 <span className="text-[10px] md:text-xs tracking-[0.25em] font-bold text-gray-400 group-hover:text-[#c5a059] uppercase transition-colors duration-300">
                                     {cert.name}
                                 </span>
                             </div>
 
-                            {/* Subtle background glow on hover */}
                             <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[#c5a059]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
                         </motion.div>
                     ))}

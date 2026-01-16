@@ -55,7 +55,7 @@ const Header = () => {
                         </div>
                     </div>
 
-                    <Link href="/sourcing" className={styles.navLink}>SOURCING AGENT</Link>
+                    <Link href="/sourcing-agent" className={styles.navLink}>SOURCING AGENT</Link>
 
                     {/* PRODUCTS DROPDOWN (Multi-level) */}
                     <div className={styles.dropdownContainer}>
@@ -89,7 +89,7 @@ const Header = () => {
 
                     <Link href="/gallery" className={styles.navLink}>GALLERY</Link>
                     <Link href="/blog" className={styles.navLink}>BLOG</Link>
-                    <Link href="/contact" className={styles.navLink}>CONTACT US</Link>
+                    <Link href="/contact-us" className={styles.navLink}>CONTACT US</Link>
                 </nav>
 
                 <button className="lg:hidden text-white cursor-pointer" onClick={() => setIsMobileMenuOpen(true)}>
@@ -121,7 +121,7 @@ const Header = () => {
                             </div>
                         </div>
 
-                        <Link href="/sourcing" className="cursor-pointer" onClick={closeAll}>Sourcing Agent</Link>
+                        <Link href="/sourcing-agent" className="cursor-pointer" onClick={closeAll}>Sourcing Agent</Link>
 
                         {/* Level 1: PRODUCTS */}
                         <div className={styles.mobileAccordion}>
@@ -157,7 +157,7 @@ const Header = () => {
 
                         <Link href="/gallery" className="cursor-pointer" onClick={closeAll}>Gallery</Link>
                         <Link href="/blog" className="cursor-pointer" onClick={closeAll}>Blog</Link>
-                        <Link href="/contact" className="cursor-pointer" onClick={closeAll}>Contact us</Link>
+                        <Link href="/contact-us" className="cursor-pointer" onClick={closeAll}>Contact us</Link>
                     </nav>
 
                     <div className={styles.drawerFooter}>
