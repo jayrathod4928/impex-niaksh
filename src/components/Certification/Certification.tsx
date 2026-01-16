@@ -1,111 +1,97 @@
 "use client";
-import React, { useCallback, useEffect, useState } from 'react';
-import useEmblaCarousel from 'embla-carousel-react';
-import Autoplay from 'embla-carousel-autoplay';
-import { motion } from 'framer-motion';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
+
+import React from 'react';
+import { motion, Variants } from 'framer-motion';
 import styles from './Certification.module.scss';
 
-const certifications = [
-    { id: 1, name: "DGFT", logo: "https://oesexportimport.com/wp-content/uploads/2020/07/dgft.jpg" },
-    { id: 2, name: "APEDA", logo: "https://oesexportimport.com/wp-content/uploads/2020/07/logo5.png" },
-    { id: 3, name: "MSME", logo: "https://oesexportimport.com/wp-content/uploads/2020/07/msme.png" },
-    { id: 4, name: "FIEO", logo: "https://oesexportimport.com/wp-content/uploads/2020/07/fieo.jpg" },
-    { id: 5, name: "FICCI", logo: "https://oesexportimport.com/wp-content/uploads/2020/07/ficci.jpg" },
-    { id: 6, name: "GCCI", logo: "https://oesexportimport.com/wp-content/uploads/2020/07/gcci.png" },
-    { id: 7, name: "Adyog Aadhaar", logo: "https://oesexportimport.com/wp-content/uploads/2020/07/udyogaadhaar.png" },
-    { id: 8, name: "Goods", logo: "https://oesexportimport.com/wp-content/uploads/2020/07/logo3.jpg" },
-    { id: 9, name: "FDA", logo: "https://oesexportimport.com/wp-content/uploads/2020/12/fda.png" },
-    { id: 10, name: "Spices", logo: "https://oesexportimport.com/wp-content/uploads/2020/12/spice.png" },
-    { id: 11, name: "Halal", logo: "https://oesexportimport.com/wp-content/uploads/2020/12/halal.png" },
-    { id: 12, name: "GMP", logo: "https://oesexportimport.com/wp-content/uploads/2020/12/gmp.png" },
-];
+const Certification: React.FC = () => {
 
-const Certification = () => {
-    // Note: align: 'center' is crucial for the middle item to be the selectedIndex
-    const [emblaRef, emblaApi] = useEmblaCarousel(
-        {
-            loop: true,
-            align: 'center',
-            skipSnaps: false
-        },
-        [Autoplay({ delay: 3000, stopOnInteraction: false })]
-    );
+    const containerVariants: Variants = {
+        hidden: { opacity: 0 },
+        visible: {
+            opacity: 1,
+            transition: {
+                staggerChildren: 0.3,
+                delayChildren: 0.2
+            }
+        }
+    };
 
-    const [selectedIndex, setSelectedIndex] = useState(0);
-
-    const scrollPrev = useCallback(() => emblaApi && emblaApi.scrollPrev(), [emblaApi]);
-    const scrollNext = useCallback(() => emblaApi && emblaApi.scrollNext(), [emblaApi]);
-
-    const onSelect = useCallback(() => {
-        if (!emblaApi) return;
-        setSelectedIndex(emblaApi.selectedScrollSnap());
-    }, [emblaApi]);
-
-    useEffect(() => {
-        if (!emblaApi) return;
-        emblaApi.on('select', onSelect);
-        onSelect();
-    }, [emblaApi, onSelect]);
+    const itemVariants: Variants = {
+        hidden: { opacity: 0, y: 40 },
+        visible: {
+            opacity: 1,
+            y: 0,
+            transition: {
+                duration: 1.2,
+                ease: [0.19, 1, 0.22, 1]
+            }
+        }
+    };
 
     return (
-        <section className={styles.certificationSection}>
-            <div className="max-w-7xl mx-auto px-6 relative">
-
-                <motion.div
+        <section className={`${styles.certificationSection} relative overflow-hidden bg-white w-full`}>
+            {/* Minimalist Header Banner */}
+            <div className="w-full bg-[#0a0a0a] flex flex-col items-center justify-center py-32 md:py-40">
+                <motion.span
+                    initial={{ opacity: 0, letterSpacing: "1em" }}
+                    whileInView={{ opacity: 0.5, letterSpacing: "0.5em" }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 1.5 }}
+                    className="text-[#c5a059] uppercase text-[10px] md:text-xs mb-6 ml-[0.5em]"
+                >
+                    Global Accreditation
+                </motion.span>
+                <motion.h2
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    className="text-center mb-16"
+                    transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
+                    className={`${styles.premiumSerif} text-white text-4xl md:text-7xl uppercase font-light text-center px-4 tracking-tight`}
                 >
-                    <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">
-                        Membership & Certification
-                    </h2>
-                    <div className="w-16 h-1 bg-blue-500 mx-auto rounded-full" />
-                </motion.div>
+                    Certification
+                </motion.h2>
+                <motion.div
+                    initial={{ width: 0 }}
+                    whileInView={{ width: "60px" }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 1.5, delay: 0.5 }}
+                    className="h-[1px] bg-[#c5a059] mt-10 opacity-60"
+                ></motion.div>
+            </div>
 
-                <div className="relative group">
-                    {/* Navigation Buttons */}
-                    <button onClick={scrollPrev} className={`${styles.navButton} -left-4 lg:-left-12`}>
-                        <ChevronLeft size={24} />
-                    </button>
-                    <button onClick={scrollNext} className={`${styles.navButton} -right-4 lg:-right-12`}>
-                        <ChevronRight size={24} />
-                    </button>
+            {/* Centered Content Area */}
+            <div className="max-w-5xl mx-auto px-6 py-32 md:py-32 text-center">
+                <motion.div
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, margin: "-100px" }}
+                    variants={containerVariants}
+                    className="flex flex-col items-center"
+                >
+                    <motion.h3
+                        variants={itemVariants}
+                        className={`${styles.premiumSerif} text-5xl md:text-5xl mb-12 text-[#1a1a1a] tracking-tight`}
+                    >
+                        We are <span className="italic text-gray-400 font-extralight">Certified</span>
+                    </motion.h3>
 
-                    {/* Slider Wrapper */}
-                    <div className={styles.embla} ref={emblaRef}>
-                        <div className={styles.emblaContainer}>
-                            {certifications.map((item, index) => (
-                                <div className={styles.emblaSlide} key={item.id}>
-                                    <div className={`
-                                        ${styles.logoWrapper} 
-                                        ${index === selectedIndex ? styles.active : ''}
-                                    `}>
-                                        <img
-                                            src={item.logo}
-                                            alt={item.name}
-                                            className="max-h-full max-w-full object-contain pointer-events-none"
-                                        />
-                                    </div>
-                                </div>
-                            ))}
+                    <motion.div variants={itemVariants} className="space-y-8">
+                        <p className="text-gray-500 text-xl md:text-2xl leading-relaxed font-light max-w-4xl mx-auto">
+                            We are pleased to inform you that
+                            <span className="text-black font-normal uppercase tracking-wide px-2"> OES Export Import Pvt Ltd </span>
+                            is certified by the
+                            <span className="text-black font-normal"> Government of India </span>
+                            according to the following standards.
+                        </p>
+
+                        <div className="flex justify-center items-center">
+                            <div className="h-[1px] w-12 bg-gray-200"></div>
+                            <div className="mx-4 w-1.5 h-1.5 rounded-full bg-[#c5a059]"></div>
+                            <div className="h-[1px] w-12 bg-gray-200"></div>
                         </div>
-                    </div>
-                </div>
-
-                {/* Pagination Dots */}
-                <div className="flex justify-center gap-2 mt-12">
-                    {certifications.map((_, i) => (
-                        <button
-                            key={i}
-                            onClick={() => emblaApi?.scrollTo(i)}
-                            className={`h-2 rounded-full transition-all duration-300 ${
-                                i === selectedIndex ? 'w-6 bg-blue-500' : 'w-2 bg-gray-300'
-                            }`}
-                        />
-                    ))}
-                </div>
+                    </motion.div>
+                </motion.div>
             </div>
         </section>
     );

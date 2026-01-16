@@ -5,7 +5,7 @@ import WhatWeDo from "@/components/WhatWeDo/WhatWeDo";
 import Products from "@/components/Products/Products";
 import WhyChooseUs from "@/components/WhyChooseUs/WhyChooseUs";
 import Testimonials from "@/components/Testimonials/Testimonials";
-import Certification from "@/components/Certification/Certification";
+import CertificationTestimonial from "@/components/CertificationTestimonial/CertificationTestimonial";
 
 export default function Home() {
     return (
@@ -30,7 +30,7 @@ export default function Home() {
                         <Testimonials />
                     </ScrollReveal>
                     <ScrollReveal>
-                        <Certification />
+                        <CertificationTestimonial />
                     </ScrollReveal>
                 </div>
             </div>

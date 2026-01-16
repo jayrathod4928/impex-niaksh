@@ -3,11 +3,12 @@
   font-weight: 300;
 }
 
-.certificationSection {
-  background: linear-gradient(180deg, #ffffff 0%, #fcfcfc 100%);
+.gallerySection {
+  position: relative;
+  background: linear-gradient(180deg, #ffffff 0%, #fafafa 100%);
 
-  /* Subtle texture overlay for a "paper" feel */
-  &::before {
+  /* Subtle luxury texture */
+  &::after {
     content: "";
     position: absolute;
     inset: 0;
@@ -15,9 +16,4 @@
     pointer-events: none;
     background-image: url("https://www.transparenttextures.com/patterns/felt.png");
   }
-}
-
-/* Custom Gold Accent if not using Tailwind colors */
-.goldText {
-  color: #c5a059;
 }
