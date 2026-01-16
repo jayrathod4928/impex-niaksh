@@ -4,7 +4,7 @@
   min-height: 80vh;
   display: flex;
   align-items: center;
-  background: transparent; // Fully transparent to show the Home bg
+  background: radial-gradient(circle at top right, #1a2a3a 0%, #0a0f14 100%);
   overflow: hidden;
 
   // This adds a "glass" tint so text is readable over the fixed image

@@ -56,21 +56,25 @@ const ContactSection = () => {
                     initial="hidden"
                     whileInView="visible"
                     viewport={{ once: true }}
-                    className="z-10"
+                    /* Added text-center for mobile/tablet and lg:text-left for desktop */
+                    className="z-10 text-center lg:text-left flex flex-col items-center lg:items-start"
                 >
-                    <span className="text-[#c5a059] uppercase tracking-[0.5em] text-xs font-bold mb-6 block">
-                        Contact Inquiry
-                    </span>
+    <span className="text-[#c5a059] uppercase tracking-[0.5em] text-xs font-bold mb-6 block">
+        Contact Inquiry
+    </span>
+
                     <h2 className="text-5xl md:text-7xl font-light text-[#1e3a8a] leading-tight mb-8">
                         Elevate Your <br />
                         <span className="italic font-serif text-[#c5a059]">Logistics.</span>
                     </h2>
-                    <div className="h-[1px] w-20 bg-[#c5a059] mb-8" />
+
+                    {/* Added mx-auto for mobile/tablet and lg:mx-0 for desktop */}
+                    <div className="h-[1px] w-20 bg-[#c5a059] mb-8 mx-auto lg:mx-0" />
+
                     <p className="text-gray-500 text-lg leading-relaxed max-w-md">
                         Our experts are ready to architect a bespoke solution for your global trade requirements.
                     </p>
                 </motion.div>
-
                 {/* Right Side: The Premium Card */}
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
