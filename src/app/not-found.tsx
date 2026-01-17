@@ -16,7 +16,7 @@ export default function NotFound() {
                 className="relative w-full max-w-lg mt-23"
             >
                 <img
-                    src="https://cdn.vectorstock.com/i/500p/18/52/404-error-page-not-found-web-design-vector-49251852.jpg"
+                    src="https://cdn.vectorstock.com/i/500p/81/59/404-error-page-not-found-vector-51588159.jpg"
                     alt="404 Error - Page Not Found"
                     className="w-full h-auto"
                 />
@@ -31,7 +31,7 @@ export default function NotFound() {
             >
                 {/* Updated text color to a darker slate for readability on white */}
                 <h2 className="text-slate-800 uppercase tracking-[0.5em] text-xs md:text-sm mb-8 font-semibold">
-                    Lost in Space
+                    Page Not Found
                 </h2>
 
                 <Link
