@@ -2,7 +2,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { createPortal } from 'react-dom';
 import ProductCard from './ProductCard';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, Variants } from 'framer-motion';
 
 interface ProductData {
     id: number | string;
@@ -17,7 +17,20 @@ interface ProductGridProps {
     showUnderline?: boolean;
 }
 
-// Set default value to true
+// Staggered Container Variants
+const containerVariants: Variants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+        opacity: 1,
+        y: 0,
+        transition: {
+            duration: 0.6,
+            staggerChildren: 0.01, // Staggers each product card by 0.1s
+            ease: "easeOut"
+        }
+    }
+};
+
 const ProductGrid: React.FC<ProductGridProps> = ({
                                                      sectionTitle,
                                                      data,
@@ -27,6 +40,7 @@ const ProductGrid: React.FC<ProductGridProps> = ({
     const [mounted, setMounted] = useState(false);
 
     useEffect(() => {
+        // eslint-disable-next-line react-hooks/set-state-in-effect
         setMounted(true);
     }, []);
 
@@ -65,7 +79,14 @@ const ProductGrid: React.FC<ProductGridProps> = ({
                 )}
             </div>
 
-            <div className="flex flex-wrap justify-center gap-4 md:gap-8 lg:gap-10">
+            {/* STAGGERED CONTAINER */}
+            <motion.div
+                variants={containerVariants}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: "-50px" }}
+                className="flex flex-wrap justify-center gap-4 md:gap-8 lg:gap-10"
+            >
                 {data.map((item, index) => (
                     <div
                         key={item.id}
@@ -79,7 +100,7 @@ const ProductGrid: React.FC<ProductGridProps> = ({
                         />
                     </div>
                 ))}
-            </div>
+            </motion.div>
 
             {/* LIGHTBOX MODAL */}
             {mounted && createPortal(

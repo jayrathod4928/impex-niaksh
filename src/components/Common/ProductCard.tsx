@@ -1,6 +1,6 @@
 "use client";
 import React from 'react';
-import { motion } from 'framer-motion';
+import { motion, Variants } from 'framer-motion';
 
 interface ProductCardProps {
     title: string;
@@ -8,15 +8,20 @@ interface ProductCardProps {
     index: number;
 }
 
-const ProductCard: React.FC<ProductCardProps> = ({ title, image, index }) => {
+// Child Variants
+const itemVariants: Variants = {
+    hidden: { opacity: 0, y: 10 },
+    visible: {
+        opacity: 1,
+        y: 0,
+        transition: { duration: 0.5, ease: "easeOut" }
+    }
+};
+
+const ProductCard: React.FC<ProductCardProps> = ({ title, image }) => {
     return (
         <motion.div
-            initial={{ opacity: 0, y: 20 }} // Reduced y offset for a faster feel
-            whileInView={{ opacity: 1, y: 0 }}
-            // REMOVED: delay: index * 0.1
-            // FIXED: Set duration to 0.4 for a quicker entrance
-            transition={{ duration: 0.4, ease: "easeOut" }}
-            viewport={{ once: true, margin: "-50px" }} // Triggers slightly before it enters view
+            variants={itemVariants} // Inherits from parent Container
             className="group bg-white p-2 md:p-4 border border-amber-500/20 transition-all duration-500 hover:border-amber-600/60 hover:shadow-[0_20px_50px_rgba(197,160,89,0.15)] hover:-translate-y-2 cursor-pointer flex flex-col h-full w-full"
         >
             {/* Image Container */}

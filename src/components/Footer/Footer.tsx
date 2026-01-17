@@ -16,6 +16,7 @@ const Footer = () => {
     const [currentYear, setCurrentYear] = useState<number>(2026);
 
     useEffect(() => {
+        // eslint-disable-next-line react-hooks/set-state-in-effect
         setCurrentYear(new Date().getFullYear());
     }, []);
 
@@ -133,7 +134,7 @@ const Footer = () => {
             {/* Copyright */}
             <div className="mt-16 pt-8 border-t border-gray-700 text-center">
                 <p className="text-orange-500 text-xs font-medium tracking-wide px-4">
-                    © Copyrights {currentYear} All Rights Reserved NIPL Pvt Ltd
+                    &copy; 2026 All Rights Reserved NIPL Pvt Ltd. Designed by SEULUXE.
                 </p>
             </div>
         </footer>
