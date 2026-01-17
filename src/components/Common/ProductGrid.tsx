@@ -23,15 +23,21 @@ const ProductGrid: React.FC<ProductGridProps> = ({ sectionTitle, data }) => {
                 <div className="w-16 md:w-24 h-1 md:h-1.5 bg-amber-600 mt-4 md:mt-6 rounded-full" />
             </div>
 
-            {/* Responsive Grid: Changed grid-cols-1 to grid-cols-2 */}
-            <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-10">
+            {/* Centered Flex Container - This solves the "6 or 7 items" issue */}
+            <div className="flex flex-wrap justify-center gap-4 md:gap-8 lg:gap-10">
                 {data.map((item, index) => (
-                    <ProductCard
+                    <div
                         key={item.id}
-                        index={index}
-                        title={item.title}
-                        image={item.image}
-                    />
+                        // Mobile: 2 columns (minus gap)
+                        // Desktop: 4 columns (minus gap)
+                        className="w-[calc(50%-1rem)] lg:w-[calc(25%-2rem)] min-w-[150px] max-w-[300px]"
+                    >
+                        <ProductCard
+                            index={index}
+                            title={item.title}
+                            image={item.image}
+                        />
+                    </div>
                 ))}
             </div>
         </section>
