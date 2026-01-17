@@ -93,7 +93,7 @@ const ContentShowcase: React.FC<ContentShowcaseProps> = ({
                                 <div className="mt-1.5 shrink-0">
                                     <div className="h-2.5 w-2.5 rounded-full bg-[#ff8c00] group-hover:scale-150 transition-transform duration-300" />
                                 </div>
-                                <p className="text-slate-600 text-base md:text-lg leading-relaxed">
+                                <p className="text-slate-600 text-base md:text-md leading-relaxed">
                                     {point}
                                 </p>
                             </motion.li>
