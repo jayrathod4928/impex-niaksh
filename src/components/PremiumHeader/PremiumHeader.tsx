@@ -14,7 +14,8 @@ const PremiumHeader = ({
                            accentColor = "#c5a059"
                        }: PremiumHeaderProps) => {
     return (
-        <div className="w-full bg-[#0a0a0a] flex flex-col items-center justify-center py-32 md:py-40">
+        <div className="w-full bg-[radial-gradient(circle_at_center,_#1e1e2e_0%,_#0f0f13_100%)] flex flex-col items-center justify-center pt-32 pb-12 md:pt-40 md:pb-16">
+
             {/* Animated Subtitle */}
             <motion.span
                 initial={{ opacity: 0, letterSpacing: "1em" }}
@@ -22,7 +23,7 @@ const PremiumHeader = ({
                 viewport={{ once: true }}
                 transition={{ duration: 1.5 }}
                 style={{ color: accentColor }}
-                className="uppercase text-[10px] md:text-xs mb-6 ml-[0.5em]"
+                className="uppercase text-[10px] md:text-xs mb-4 ml-[0.5em] block"
             >
                 {subtitle}
             </motion.span>
@@ -33,8 +34,8 @@ const PremiumHeader = ({
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
-                className="text-white text-4xl md:text-7xl uppercase font-light text-center px-4 tracking-tight"
-                style={{ fontFamily: "var(--premium-serif)" }} // Fallback for your styles.premiumSerif
+                className="text-white text-4xl md:text-7xl uppercase font-light text-center px-4 tracking-tight leading-tight"
+                style={{ fontFamily: "var(--premium-serif)" }}
             >
                 {title}
             </motion.h2>
@@ -46,7 +47,7 @@ const PremiumHeader = ({
                 viewport={{ once: true }}
                 transition={{ duration: 1.5, delay: 0.5 }}
                 style={{ backgroundColor: accentColor }}
-                className="h-[1px] mt-10 opacity-60"
+                className="h-[1px] mt-8 opacity-60"
             ></motion.div>
         </div>
     );
