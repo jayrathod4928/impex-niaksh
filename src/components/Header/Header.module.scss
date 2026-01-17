@@ -300,3 +300,37 @@
       }
     }
   }
+
+  /* Desktop Highlights */
+  .navLink.active {
+    color: #f59e0b; // Set your active yellow/orange
+    &::after {
+      transform: scaleX(1);
+      background: #f59e0b;
+    }
+  }
+
+  .dropdownMenu {
+    a.active {
+      color: #f59e0b !important;
+      background: rgba(250, 204, 21, 0.05); // Slight highlight background
+    }
+  }
+
+  .nestedHeader.active {
+    color: #f59e0b;
+  }
+
+  /* Mobile Highlights */
+  .mobileActive {
+    color: #f59e0b !important; // Forces yellow on active links
+
+    span {
+      color: #f59e0b; // Ensures text inside spans (like Food Products) turns yellow
+    }
+  }
+
+  // Make the arrow turn yellow if active
+  .mobileActive svg {
+    color: #f59e0b !important;
+  }

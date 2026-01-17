@@ -2,22 +2,25 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { usePathname } from 'next/navigation'; // Added for active state
-import { ChevronDown, ChevronRight, Menu } from 'lucide-react';
+import { usePathname } from 'next/navigation';
+import { ChevronDown, ChevronRight, Menu, X } from 'lucide-react';
 import styles from './Header.module.scss';
 import logo from '@/components/Images/Nipl-logo.png';
 
 const Header = () => {
-    const pathname = usePathname(); // Get current route
+    const pathname = usePathname();
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const [openSubMenu, setOpenSubMenu] = useState<string | null>(null);
     const [openNestedMenu, setOpenNestedMenu] = useState<string | null>(null);
 
-    // Helper to check if a link is active
+    // Helpers
     const isActive = (path: string) => pathname === path;
-
-    // Helper to check if a parent dropdown has an active child
     const isParentActive = (paths: string[]) => paths.some(path => pathname.startsWith(path));
+
+    // Path Groups for easier logic
+    const aboutPaths = ['/about-company', '/certification', '/key-person'];
+    const foodProductPaths = ['/products/fruits', '/products/grocery', '/products/spices', '/products/namkeen'];
+    const allProductPaths = ['/products'];
 
     const toggleSubMenu = (menu: string) => {
         setOpenSubMenu(openSubMenu === menu ? null : menu);
@@ -50,7 +53,7 @@ const Header = () => {
 
                     {/* ABOUT DROPDOWN */}
                     <div className={styles.dropdownContainer}>
-                        <div className={`${styles.navLink} ${isParentActive(['/about-company', '/certification', '/key-person']) ? styles.active : ''}`}>
+                        <div className={`${styles.navLink} ${isParentActive(aboutPaths) ? styles.active : ''}`}>
                             ABOUT <ChevronDown size={14} className="ml-1" />
                         </div>
                         <div className={styles.dropdownMenu}>
@@ -64,12 +67,12 @@ const Header = () => {
 
                     {/* PRODUCTS DROPDOWN */}
                     <div className={styles.dropdownContainer}>
-                        <div className={`${styles.navLink} ${isParentActive(['/products']) ? styles.active : ''}`}>
+                        <div className={`${styles.navLink} ${isParentActive(allProductPaths) ? styles.active : ''}`}>
                             PRODUCTS <ChevronDown size={14} className="ml-1" />
                         </div>
                         <div className={styles.dropdownMenu}>
                             <div className={styles.nestedTrigger}>
-                                <div className={`${styles.nestedHeader} ${isParentActive(['/products/fruits', '/products/grocery', '/products/spices', '/products/namkeen']) ? styles.active : ''}`}>
+                                <div className={`${styles.nestedHeader} ${isParentActive(foodProductPaths) ? styles.active : ''}`}>
                                     <span>Food Products</span>
                                     <ChevronRight size={14} />
                                 </div>
@@ -105,65 +108,68 @@ const Header = () => {
             <div className={`${styles.drawerOverlay} ${isMobileMenuOpen ? styles.overlayVisible : ''}`} onClick={closeAll} />
             <div className={`${styles.mobileMenu} ${isMobileMenuOpen ? styles.open : ''}`}>
                 <div className={`${styles.drawerContent} h-full overflow-y-auto`}>
-                    <div className="flex justify-center">
-                        <Image src={logo} alt="Logo" className="h-25 w-auto" />
+                    <div className="flex justify-between items-center py-4">
+                        <Image src={logo} alt="Logo" className="h-20 w-auto" />
+                        <X className="text-white cursor-pointer" onClick={closeAll} size={28} />
                     </div>
 
                     <nav className={styles.mobileNav}>
-                        <Link href="/" className={`${isActive('/') ? styles.mobileActive : ''} cursor-pointer`} onClick={closeAll}>Home</Link>
+                        <Link href="/" className={`${isActive('/') ? styles.mobileActive : ''}`} onClick={closeAll}>Home</Link>
 
+                        {/* Mobile About Section */}
                         <div className={styles.mobileAccordion}>
-                            <div className={`${styles.mobileItemWithArrow} ${isParentActive(['/about-company', '/certification', '/key-person']) ? styles.mobileActive : ''} cursor-pointer`} onClick={() => toggleSubMenu('about')}>
+                            <div className={`${styles.mobileItemWithArrow} ${isParentActive(aboutPaths) ? styles.mobileActive : ''}`} onClick={() => toggleSubMenu('about')}>
                                 <span>About</span>
                                 <ChevronRight size={18} className={openSubMenu === 'about' ? styles.rotate : ''} />
                             </div>
                             <div className={`${styles.mobileSubLinks} ${openSubMenu === 'about' ? styles.show : ''}`}>
-                                <Link href="/about-company" className={`${isActive('/about-company') ? styles.mobileActive : ''} cursor-pointer`} onClick={closeAll}>Company</Link>
-                                <Link href="/certification" className={`${isActive('/certification') ? styles.mobileActive : ''} cursor-pointer`} onClick={closeAll}>Certification</Link>
-                                <Link href="/key-person" className={`${isActive('/key-person') ? styles.mobileActive : ''} cursor-pointer`} onClick={closeAll}>Key Person</Link>
+                                <Link href="/about-company" className={isActive('/about-company') ? styles.mobileActive : ''} onClick={closeAll}>Company</Link>
+                                <Link href="/certification" className={isActive('/certification') ? styles.mobileActive : ''} onClick={closeAll}>Certification</Link>
+                                <Link href="/key-person" className={isActive('/key-person') ? styles.mobileActive : ''} onClick={closeAll}>Key Person</Link>
                             </div>
                         </div>
 
-                        <Link href="/sourcing-agent" className={`${isActive('/sourcing-agent') ? styles.mobileActive : ''} cursor-pointer`} onClick={closeAll}>Sourcing Agent</Link>
+                        <Link href="/sourcing-agent" className={isActive('/sourcing-agent') ? styles.mobileActive : ''} onClick={closeAll}>Sourcing Agent</Link>
 
+                        {/* Mobile Products Section */}
                         <div className={styles.mobileAccordion}>
-                            <div className={`${styles.mobileItemWithArrow} ${isParentActive(['/products']) ? styles.mobileActive : ''} cursor-pointer`} onClick={() => toggleSubMenu('products')}>
+                            <div className={`${styles.mobileItemWithArrow} ${isParentActive(allProductPaths) ? styles.mobileActive : ''}`} onClick={() => toggleSubMenu('products')}>
                                 <span>Products</span>
                                 <ChevronRight size={18} className={openSubMenu === 'products' ? styles.rotate : ''} />
                             </div>
 
                             <div className={`${styles.mobileSubLinks} ${openSubMenu === 'products' ? styles.show : ''}`}>
                                 <div className={styles.mobileNestedAccordion}>
-                                    <div className={`${styles.nestedTriggerItem} cursor-pointer`} onClick={(e) => toggleNestedMenu(e, 'food')}>
-                                        <span className={isParentActive(['/products/fruits', '/products/grocery', '/products/spices', '/products/namkeen']) ? "text-[#facc15]" : "text-[#ffffff]"}>Food Products</span>
+                                    <div className={`${styles.nestedTriggerItem} ${isParentActive(foodProductPaths) ? styles.mobileActive : ''}`} onClick={(e) => toggleNestedMenu(e, 'food')}>
+                                        <span>Food Products</span>
                                         <ChevronDown size={16} className={openNestedMenu === 'food' ? styles.rotateDown : ''} />
                                     </div>
                                     <div className={`${styles.nestedContent} ${openNestedMenu === 'food' ? styles.showNested : ''}`}>
-                                        <Link href="/products/fruits" className={`${isActive('/products/fruits') ? styles.mobileActive : ''} cursor-pointer`} onClick={closeAll}>Fruits & Vegetables</Link>
-                                        <Link href="/products/grocery" className={`${isActive('/products/grocery') ? styles.mobileActive : ''} cursor-pointer`} onClick={closeAll}>Grocery</Link>
-                                        <Link href="/products/spices" className={`${isActive('/products/spices') ? styles.mobileActive : ''} cursor-pointer`} onClick={closeAll}>Spices</Link>
-                                        <Link href="/products/namkeen" className={`${isActive('/products/namkeen') ? styles.mobileActive : ''} cursor-pointer`} onClick={closeAll}>Namkeen & Frozen</Link>
+                                        <Link href="/products/fruits" className={isActive('/products/fruits') ? styles.mobileActive : ''} onClick={closeAll}>Fruits & Vegetables</Link>
+                                        <Link href="/products/grocery" className={isActive('/products/grocery') ? styles.mobileActive : ''} onClick={closeAll}>Grocery</Link>
+                                        <Link href="/products/spices" className={isActive('/products/spices') ? styles.mobileActive : ''} onClick={closeAll}>Spices</Link>
+                                        <Link href="/products/namkeen" className={isActive('/products/namkeen') ? styles.mobileActive : ''} onClick={closeAll}>Namkeen & Frozen</Link>
                                     </div>
                                 </div>
 
-                                <Link href="/products/garments" className={`${isActive('/products/garments') ? styles.mobileActive : ''} cursor-pointer`} onClick={closeAll}>Garments</Link>
-                                <Link href="/products/leather" className={`${isActive('/products/leather') ? styles.mobileActive : ''} cursor-pointer`} onClick={closeAll}>Leather Products</Link>
-                                <Link href="/products/jewellery" className={`${isActive('/products/jewellery') ? styles.mobileActive : ''} cursor-pointer`} onClick={closeAll}>Imitation Jewellery</Link>
-                                <Link href="/products/handicraft" className={`${isActive('/products/handicraft') ? styles.mobileActive : ''} cursor-pointer`} onClick={closeAll}>Handicraft</Link>
-                                <Link href="/products/furniture" className={`${isActive('/products/furniture') ? styles.mobileActive : ''} cursor-pointer`} onClick={closeAll}>Furniture</Link>
-                                <Link href="/products/ceramic" className={`${isActive('/products/ceramic') ? styles.mobileActive : ''} cursor-pointer`} onClick={closeAll}>Ceramic & Stone</Link>
-                                <Link href="/products/copper-products" className={`${isActive('/products/copper-products') ? styles.mobileActive : ''} cursor-pointer`} onClick={closeAll}>Copper products</Link>
-                                <Link href="/products/packaging-products" className={`${isActive('/products/packaging-products') ? styles.mobileActive : ''} cursor-pointer`} onClick={closeAll} >Packaging Products</Link>
+                                <Link href="/products/garments" className={isActive('/products/garments') ? styles.mobileActive : ''} onClick={closeAll}>Garments</Link>
+                                <Link href="/products/leather" className={isActive('/products/leather') ? styles.mobileActive : ''} onClick={closeAll}>Leather Products</Link>
+                                <Link href="/products/jewellery" className={isActive('/products/jewellery') ? styles.mobileActive : ''} onClick={closeAll}>Imitation Jewellery</Link>
+                                <Link href="/products/handicraft" className={isActive('/products/handicraft') ? styles.mobileActive : ''} onClick={closeAll}>Handicraft</Link>
+                                <Link href="/products/furniture" className={isActive('/products/furniture') ? styles.mobileActive : ''} onClick={closeAll}>Furniture</Link>
+                                <Link href="/products/ceramic" className={isActive('/products/ceramic') ? styles.mobileActive : ''} onClick={closeAll}>Ceramic & Stone</Link>
+                                <Link href="/products/copper-products" className={isActive('/products/copper-products') ? styles.mobileActive : ''} onClick={closeAll}>Copper products</Link>
+                                <Link href="/products/packaging-products" className={isActive('/products/packaging-products') ? styles.mobileActive : ''} onClick={closeAll} >Packaging Products</Link>
                             </div>
                         </div>
 
-                        <Link href="/gallery" className={`${isActive('/gallery') ? styles.mobileActive : ''} cursor-pointer`} onClick={closeAll}>Gallery</Link>
-                        <Link href="/blog" className={`${isActive('/blog') ? styles.mobileActive : ''} cursor-pointer`} onClick={closeAll}>Blog</Link>
-                        <Link href="/contact-us" className={`${isActive('/contact-us') ? styles.mobileActive : ''} cursor-pointer`} onClick={closeAll}>Contact us</Link>
+                        <Link href="/gallery" className={isActive('/gallery') ? styles.mobileActive : ''} onClick={closeAll}>Gallery</Link>
+                        <Link href="/blog" className={isActive('/blog') ? styles.mobileActive : ''} onClick={closeAll}>Blog</Link>
+                        <Link href="/contact-us" className={isActive('/contact-us') ? styles.mobileActive : ''} onClick={closeAll}>Contact us</Link>
                     </nav>
 
                     <div className={styles.drawerFooter}>
-                        <p>© 2025 OES Export Import Pvt Ltd.</p>
+                        <p>© 2026 OES Export Import Pvt Ltd.</p>
                     </div>
                 </div>
             </div>
