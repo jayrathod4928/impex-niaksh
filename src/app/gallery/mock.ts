@@ -1,0 +1,18 @@
+export const gallery = [
+    { id: 1, title: " ", image: "https://oesexportimport.com/wp-content/uploads/2021/01/frozen-food-export.jpg" },
+    { id: 2, title: " ", image: "https://oesexportimport.com/wp-content/uploads/2021/01/spices-export.jpg" },
+    { id: 3, title: " ", image: "https://oesexportimport.com/wp-content/uploads/2021/01/Frozen-Parathas.jpg" },
+    { id: 4, title: " ", image: "https://oesexportimport.com/wp-content/uploads/2021/01/Frozen-Naan.jpg" },
+    { id: 5, title: " ", image: "https://oesexportimport.com/wp-content/uploads/2021/01/Frozen-Thepla.jpg" },
+    { id: 6, title: " ", image: "https://oesexportimport.com/wp-content/uploads/2021/01/Frozen-Samosa.jpg" },
+    { id: 7, title: " ", image: "https://oesexportimport.com/wp-content/uploads/2021/01/vegetable-mix.jpg" },
+    { id: 8, title: " ", image: "https://oesexportimport.com/wp-content/uploads/2021/01/HOT-Green-Chilli.jpg" },
+    { id: 9, title: " ", image: "https://oesexportimport.com/wp-content/uploads/2021/01/Spinach.jpg" },
+    { id: 10, title: "", image: "https://oesexportimport.com/wp-content/uploads/2021/01/Tindora.jpg" },
+    { id: 11, title: " ", image: "https://oesexportimport.com/wp-content/uploads/2020/12/Dry-Mango-Powder.jpg" },
+    { id: 12, title: " ", image: "https://oesexportimport.com/wp-content/uploads/2020/12/Clove-Powder.jpg" },
+    { id: 13, title: " ", image: "https://oesexportimport.com/wp-content/uploads/2020/12/Coriander-Seeds-1.jpg" },
+    { id: 14, title: " ", image: "https://oesexportimport.com/wp-content/uploads/2020/12/Namkeen-Mixture-1.jpg" },
+    { id: 15, title: " ", image: "https://oesexportimport.com/wp-content/uploads/2020/12/Banana-Chips.jpg" },
+    { id: 16, title: " ", image: "https://oesexportimport.com/wp-content/uploads/2020/12/tam-tam.jpg" },
+];

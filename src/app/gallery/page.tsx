@@ -1,4 +1,6 @@
 import PremiumHeader from "@/components/PremiumHeader/PremiumHeader";
+import ProductGrid from "@/components/Common/ProductGrid";
+import {gallery} from "@/app/gallery/mock";
 
 export default function GalleryPage() {
     return (
@@ -8,6 +10,12 @@ export default function GalleryPage() {
                 subtitle=" "
                 title="Gallery"
                 accentColor="#c5a059"
+            />
+
+            <ProductGrid
+                sectionTitle=" "
+                data={gallery}
+                showUnderline={false}
             />
         </main>
     );
