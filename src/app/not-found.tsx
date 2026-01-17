@@ -37,7 +37,7 @@ export default function NotFound() {
                 <Link
                     href="/"
                     /* Maintained your accentColor (#c5a059) for the button branding */
-                    className="inline-block mb-12 px-10 py-4 border border-[#c5a059] text-[#c5a059] uppercase tracking-[0.2em] text-[10px] md:text-xs font-bold hover:bg-[#c5a059] hover:text-white transition-all duration-500 ease-out shadow-sm hover:shadow-lg"
+                    className="inline-block mb-12 px-10 py-4 border border-[#f59e0b] text-[#f59e0b] uppercase tracking-[0.2em] text-[10px] md:text-xs font-bold hover:bg-[#f59e0b] hover:text-white transition-all duration-500 ease-out shadow-sm hover:shadow-lg"
                 >
                     Return to Home
                 </Link>
