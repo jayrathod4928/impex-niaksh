@@ -295,6 +295,12 @@
     a {
       color: #ffffff !important;
 
+
+      &.mobileActive {
+        color: #f59e0b !important;
+        font-weight: 700 !important;
+      }
+
       &:hover {
         color: #f59e0b !important;
       }

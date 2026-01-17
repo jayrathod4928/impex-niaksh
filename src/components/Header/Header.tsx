@@ -17,7 +17,7 @@ const Header = () => {
     const isActive = (path: string) => pathname === path;
     const isParentActive = (paths: string[]) => paths.some(path => pathname.startsWith(path));
 
-    // Path Groups for easier logic
+    // Path Groups
     const aboutPaths = ['/about-company', '/certification', '/key-person'];
     const foodProductPaths = ['/products/fruits', '/products/grocery', '/products/spices', '/products/namkeen'];
     const allProductPaths = ['/products'];
@@ -114,7 +114,7 @@ const Header = () => {
                     </div>
 
                     <nav className={styles.mobileNav}>
-                        <Link href="/" className={`${isActive('/') ? styles.mobileActive : ''}`} onClick={closeAll}>Home</Link>
+                        <Link href="/" className={isActive('/') ? styles.mobileActive : ''} onClick={closeAll}>Home</Link>
 
                         {/* Mobile About Section */}
                         <div className={styles.mobileAccordion}>
