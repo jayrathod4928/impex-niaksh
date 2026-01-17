@@ -19,7 +19,7 @@ const Header = () => {
 
     // Path Groups
     const aboutPaths = ['/about-company', '/certification', '/key-person'];
-    const foodProductPaths = ['/products/fruits', '/products/grocery', '/products/spices', '/products/namkeen'];
+    const foodProductPaths = ['/products/fruits-vegetables', '/products/grocery', '/products/spices', '/products/namkeen'];
     const allProductPaths = ['/products'];
 
     const toggleSubMenu = (menu: string) => {
@@ -77,7 +77,7 @@ const Header = () => {
                                     <ChevronRight size={14} />
                                 </div>
                                 <div className={styles.subMenu}>
-                                    <Link href="/products/fruits" className={isActive('/products/fruits') ? styles.active : ''}>Fruits & Vegetables</Link>
+                                    <Link href="/products/fruits-vegetables" className={isActive('/products/fruits-vegetables') ? styles.active : ''}>Fruits & Vegetables</Link>
                                     <Link href="/products/grocery" className={isActive('/products/grocery') ? styles.active : ''}>Grocery</Link>
                                     <Link href="/products/spices" className={isActive('/products/spices') ? styles.active : ''}>Spices</Link>
                                     <Link href="/products/namkeen" className={isActive('/products/namkeen') ? styles.active : ''}>Namkeen & Frozen</Link>
@@ -145,7 +145,7 @@ const Header = () => {
                                         <ChevronDown size={16} className={openNestedMenu === 'food' ? styles.rotateDown : ''} />
                                     </div>
                                     <div className={`${styles.nestedContent} ${openNestedMenu === 'food' ? styles.showNested : ''}`}>
-                                        <Link href="/products/fruits" className={isActive('/products/fruits') ? styles.mobileActive : ''} onClick={closeAll}>Fruits & Vegetables</Link>
+                                        <Link href="/products/fruits-vegetables" className={isActive('/products/fruits-vegetables') ? styles.mobileActive : ''} onClick={closeAll}>Fruits & Vegetables</Link>
                                         <Link href="/products/grocery" className={isActive('/products/grocery') ? styles.mobileActive : ''} onClick={closeAll}>Grocery</Link>
                                         <Link href="/products/spices" className={isActive('/products/spices') ? styles.mobileActive : ''} onClick={closeAll}>Spices</Link>
                                         <Link href="/products/namkeen" className={isActive('/products/namkeen') ? styles.mobileActive : ''} onClick={closeAll}>Namkeen & Frozen</Link>

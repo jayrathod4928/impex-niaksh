@@ -1,6 +1,6 @@
 import ProductGrid from "@/components/Common/ProductGrid";
 import PremiumHeader from "@/components/PremiumHeader/PremiumHeader";
-import {foodProducts, vegetableProducts} from "@/app/products/fruits/mock";
+import {foodProducts, vegetableProducts} from "@/app/products/fruits-vegetables/mock";
 import ContentShowcase from "@/components/ContentShowcase/ContentShowcase";
 
 // 1. Move data outside the component for cleaner rendering
