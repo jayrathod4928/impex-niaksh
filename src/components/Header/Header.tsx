@@ -50,11 +50,11 @@ const Header = () => {
 
                     {/* ABOUT DROPDOWN */}
                     <div className={styles.dropdownContainer}>
-                        <div className={`${styles.navLink} ${isParentActive(['/company', '/certification', '/key-person']) ? styles.active : ''}`}>
+                        <div className={`${styles.navLink} ${isParentActive(['/about-company', '/certification', '/key-person']) ? styles.active : ''}`}>
                             ABOUT <ChevronDown size={14} className="ml-1" />
                         </div>
                         <div className={styles.dropdownMenu}>
-                            <Link href="/company" className={isActive('/company') ? styles.active : ''}>Company</Link>
+                            <Link href="/about-company" className={isActive('/about-company') ? styles.active : ''}>Company</Link>
                             <Link href="/certification" className={isActive('/certification') ? styles.active : ''}>Certification</Link>
                             <Link href="/key-person" className={isActive('/key-person') ? styles.active : ''}>Key Person</Link>
                         </div>
@@ -113,12 +113,12 @@ const Header = () => {
                         <Link href="/" className={`${isActive('/') ? styles.mobileActive : ''} cursor-pointer`} onClick={closeAll}>Home</Link>
 
                         <div className={styles.mobileAccordion}>
-                            <div className={`${styles.mobileItemWithArrow} ${isParentActive(['/company', '/certification', '/key-person']) ? styles.mobileActive : ''} cursor-pointer`} onClick={() => toggleSubMenu('about')}>
+                            <div className={`${styles.mobileItemWithArrow} ${isParentActive(['/about-company', '/certification', '/key-person']) ? styles.mobileActive : ''} cursor-pointer`} onClick={() => toggleSubMenu('about')}>
                                 <span>About</span>
                                 <ChevronRight size={18} className={openSubMenu === 'about' ? styles.rotate : ''} />
                             </div>
                             <div className={`${styles.mobileSubLinks} ${openSubMenu === 'about' ? styles.show : ''}`}>
-                                <Link href="/company" className={`${isActive('/company') ? styles.mobileActive : ''} cursor-pointer`} onClick={closeAll}>Company</Link>
+                                <Link href="/about-company" className={`${isActive('/about-company') ? styles.mobileActive : ''} cursor-pointer`} onClick={closeAll}>Company</Link>
                                 <Link href="/certification" className={`${isActive('/certification') ? styles.mobileActive : ''} cursor-pointer`} onClick={closeAll}>Certification</Link>
                                 <Link href="/key-person" className={`${isActive('/key-person') ? styles.mobileActive : ''} cursor-pointer`} onClick={closeAll}>Key Person</Link>
                             </div>

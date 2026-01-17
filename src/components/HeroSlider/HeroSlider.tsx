@@ -31,7 +31,6 @@ const HeroSlider = () => {
                 speed={1200}
                 autoplay={{ delay: 6000, disableOnInteraction: false }}
                 pagination={{ clickable: true }}
-                // Swiper optimization for click events
                 touchStartPreventDefault={false}
                 preventClicks={false}
                 preventClicksPropagation={false}
@@ -54,16 +53,15 @@ const HeroSlider = () => {
                                         className="object-cover opacity-50"
                                         priority
                                     />
-                                    <div className="absolute inset-0 bg-linear-to-r from-black/80 via-black/40 to-transparent" />
+                                    {/* Changed gradient to radial or centered linear for better look with centered text */}
+                                    <div className="absolute inset-0 bg-black/40" />
                                 </motion.div>
 
-                                {/* CRITICAL FIX: pointer-events-none on the container ensures
-                                    hidden slides don't block clicks on the active slide.
-                                */}
-                                <div className={`relative z-10 flex flex-col justify-center h-full px-6 mx-auto max-w-7xl md:px-12 transition-opacity duration-500 ${isActive ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}>
+                                {/* UPDATED: Added items-center and text-center */}
+                                <div className={`relative z-10 flex flex-col justify-center items-center text-center h-full px-6 mx-auto max-w-7xl md:px-12 transition-opacity duration-500 ${isActive ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}>
                                     <AnimatePresence mode="wait">
                                         {isActive && (
-                                            <div className="max-w-4xl">
+                                            <div className="flex flex-col items-center">
                                                 <motion.span
                                                     initial={{ opacity: 0, y: 30 }}
                                                     animate={{ opacity: 1, y: 0 }}
@@ -74,33 +72,24 @@ const HeroSlider = () => {
                                                 </motion.span>
 
                                                 <motion.h1
-                                                    initial={{ opacity: 0, x: -40 }}
-                                                    animate={{ opacity: 1, x: 0 }}
+                                                    initial={{ opacity: 0, y: 20 }} // Changed x: -40 to y: 20 for cleaner centered entrance
+                                                    animate={{ opacity: 1, y: 0 }}
                                                     transition={{ delay: 0.9, duration: 0.9, ease: "easeOut" }}
-                                                    className="text-4xl font-bold text-white md:text-6xl lg:text-8xl leading-[1.1] tracking-tight"
+                                                    className="text-4xl font-bold text-white md:text-6xl lg:text-7xl xl:text-8xl leading-[1.1] tracking-tight max-w-5xl"
                                                 >
-                                                    {slide.title.split(' ').map((word, i) => (
-                                                        <span key={i} className="inline-block mr-4">{word}</span>
-                                                    ))}
+                                                    {slide.title}
                                                 </motion.h1>
 
                                                 <motion.div
                                                     initial={{ opacity: 0, y: 20 }}
                                                     animate={{ opacity: 1, y: 0 }}
                                                     transition={{ delay: 1.4, duration: 0.8 }}
-                                                    className="mt-10 flex flex-wrap gap-5"
+                                                    /* justify-center ensures buttons stay in the middle */
+                                                    className="mt-10 flex flex-wrap justify-center gap-5"
                                                 >
-                                                    <Link href={slide.link} prefetch={true}>
+                                                    <Link href="/contact-us" prefetch={true}>
                                                         <button
-                                                            className="px-10 py-4 bg-[#d4af37] text-black font-bold uppercase tracking-wider text-sm rounded-sm hover:bg-white transition-all duration-300 shadow-[0_10px_30px_rgba(212,175,55,0.2)] active:scale-95 cursor-pointer"
-                                                        >
-                                                            Explore Services
-                                                        </button>
-                                                    </Link>
-
-                                                    <Link href="/contact" prefetch={true}>
-                                                        <button
-                                                            className="px-10 py-4 border border-white/20 text-white font-bold uppercase tracking-wider text-sm rounded-sm backdrop-blur-md hover:bg-white/10 transition-all duration-300 active:scale-95 cursor-pointer"
+                                                            className="px-10 py-4 border border-white/20 text-white font-bold uppercase tracking-wider text-sm rounded-sm hover:bg-white/10 transition-all duration-300 active:scale-95 cursor-pointer"
                                                         >
                                                             Contact Us
                                                         </button>

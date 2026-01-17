@@ -1,0 +1,23 @@
+.historySection {
+  position: relative;
+  background: #ffffff;
+
+  .accentLine {
+    height: 3px;
+    // Symmetrical gradient for a centered anchor
+    background: linear-gradient(
+                    90deg,
+                    rgba(197, 160, 89, 0) 0%,
+                    #c5a059 50%,
+                    rgba(197, 160, 89, 0) 100%
+    );
+    width: 160px;
+    margin-bottom: 2.5rem;
+  }
+
+  h2 {
+    letter-spacing: -0.01em;
+    color: #0f172a;
+    text-transform: capitalize;
+  }
+}
