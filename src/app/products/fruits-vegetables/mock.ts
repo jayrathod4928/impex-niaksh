@@ -20,5 +20,5 @@ export const vegetableProducts = [
     { id: 9, title: "Bean", image: "https://oesexportimport.com/wp-content/uploads/2020/10/bean.jpg" },
     { id: 10, title: "Carrot", image: "https://www.ugaoo.com/cdn/shop/files/8_209ea858-52db-476f-919d-857a374efd4c.jpg?v=1756482289&width=1000" },
     { id: 11, title: "Cauliflower", image: "https://m.media-amazon.com/images/I/91EdPVzD99L._SX679_.jpg" },
-    { id: 12, title: "Bottle Gourd", image: "https://fruitique.in/cdn/shop/products/doodhi_1500_x_1500_159x202.jpg?v=1632308903" }
+    { id: 12, title: "Bottle Gourd", image: "https://organicmandya.com/cdn/shop/files/BottleGourd.jpg?v=1757077759&width=1000" }
 ];

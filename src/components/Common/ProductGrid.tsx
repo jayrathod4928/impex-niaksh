@@ -1,5 +1,8 @@
-import React from 'react';
+"use client";
+import React, { useState, useEffect, useCallback } from 'react';
+import { createPortal } from 'react-dom';
 import ProductCard from './ProductCard';
+import { motion, AnimatePresence } from 'framer-motion';
 
 interface ProductData {
     id: number | string;
@@ -13,6 +16,40 @@ interface ProductGridProps {
 }
 
 const ProductGrid: React.FC<ProductGridProps> = ({ sectionTitle, data }) => {
+    const [selectedProduct, setSelectedProduct] = useState<ProductData | null>(null);
+    const [mounted, setMounted] = useState(false);
+
+    // Ensure we are on the client side before using Portals
+    useEffect(() => {
+        // eslint-disable-next-line react-hooks/set-state-in-effect
+        setMounted(true);
+    }, []);
+
+    const closeModal = useCallback(() => {
+        setSelectedProduct(null);
+    }, []);
+
+    // Handle ESC key press
+    useEffect(() => {
+        const handleEsc = (event: KeyboardEvent) => {
+            if (event.key === 'Escape') closeModal();
+        };
+        window.addEventListener('keydown', handleEsc);
+        return () => window.removeEventListener('keydown', handleEsc);
+    }, [closeModal]);
+
+    // Prevent background scroll
+    useEffect(() => {
+        if (selectedProduct) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = 'unset';
+        }
+        return () => {
+            document.body.style.overflow = 'unset';
+        };
+    }, [selectedProduct]);
+
     return (
         <section className="py-12 md:py-20 px-4 md:px-6 max-w-7xl mx-auto">
             {/* Header with Premium Underline */}
@@ -31,6 +68,7 @@ const ProductGrid: React.FC<ProductGridProps> = ({ sectionTitle, data }) => {
                         // Mobile: 2 columns (minus gap)
                         // Desktop: 4 columns (minus gap)
                         className="w-[calc(50%-1rem)] lg:w-[calc(25%-2rem)] min-w-[150px] max-w-[300px]"
+                        onClick={() => setSelectedProduct(item)}
                     >
                         <ProductCard
                             index={index}
@@ -40,6 +78,62 @@ const ProductGrid: React.FC<ProductGridProps> = ({ sectionTitle, data }) => {
                     </div>
                 ))}
             </div>
+
+            {/* LIGHTBOX MODAL - Uses Portal to bypass Footer stacking issues */}
+            {mounted && createPortal(
+                <AnimatePresence>
+                    {selectedProduct && (
+                        <motion.div
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            exit={{ opacity: 0 }}
+                            onClick={closeModal}
+                            className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/90 p-4 backdrop-blur-sm"
+                        >
+                            <motion.div
+                                initial={{ scale: 0.9, opacity: 0 }}
+                                animate={{ scale: 1, opacity: 1 }}
+                                exit={{ scale: 0.9, opacity: 0 }}
+                                className="relative max-w-3xl w-full bg-white p-4 md:p-8 rounded-sm shadow-2xl"
+                                onClick={(e) => e.stopPropagation()}
+                            >
+                                {/* Close Button */}
+                                <button
+                                    onClick={closeModal}
+                                    className="absolute top-2 right-2 md:top-4 md:right-4 text-slate-400 hover:text-amber-600 transition-colors p-2 z-20 cursor-pointer"
+                                    aria-label="Close modal"
+                                >
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        className="h-8 w-8"
+                                        fill="none"
+                                        viewBox="0 0 24 24"
+                                        stroke="currentColor"
+                                    >
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                                    </svg>
+                                </button>
+
+                                <div className="overflow-hidden">
+                                    <img
+                                        src={selectedProduct.image}
+                                        alt={selectedProduct.title}
+                                        className="w-full h-auto max-h-[70vh] object-contain mx-auto"
+                                    />
+                                </div>
+
+                                <div className="mt-6 text-center">
+                                    <h3 className="text-xl md:text-2xl font-bold text-slate-800 uppercase tracking-widest">
+                                        {selectedProduct.title}
+                                    </h3>
+                                    <div className="w-12 h-0.5 bg-amber-500 mx-auto mt-2" />
+                                </div>
+                            </motion.div>
+                        </motion.div>
+                    )}
+                </AnimatePresence>,
+                document.body
+            )}
         </section>
     );
 };
