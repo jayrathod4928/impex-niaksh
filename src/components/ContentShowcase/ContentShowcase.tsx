@@ -73,7 +73,7 @@ const ContentShowcase: React.FC<ContentShowcaseProps> = ({
                     <div>
                         <motion.h2
                             variants={textItemVariants}
-                            className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight"
+                            className="text-3xl sm:text-4xl lg:text-4xl font-extrabold text-slate-900 tracking-tight"
                         >
                             {title}
                         </motion.h2>

@@ -1,4 +1,6 @@
 import PremiumHeader from "@/components/PremiumHeader/PremiumHeader";
+import SourcingSection from "@/components/SourcingSection/SourcingSection";
+import BenefitsSection from "@/components/BenefitsSection/BenefitsSection";
 
 export default function SourcingAgentPage() {
     return (
@@ -9,6 +11,8 @@ export default function SourcingAgentPage() {
                 title="Sourcing Agent"
                 accentColor="#c5a059"
             />
+            <SourcingSection />
+            <BenefitsSection />
         </main>
     );
 }
