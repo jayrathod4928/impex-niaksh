@@ -7,7 +7,7 @@ export default function GalleryPage() {
         <main className="min-h-screen bg-white">
             {/* The dramatic entrance header */}
             <PremiumHeader
-                subtitle=" "
+                subtitle="EXCELLENCE IN EVERY PACK"
                 title="Gallery"
                 accentColor="#c5a059"
             />

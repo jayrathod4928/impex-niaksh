@@ -7,7 +7,7 @@ export default function SourcingAgentPage() {
         <main className="min-h-screen bg-white">
             {/* The dramatic entrance header */}
             <PremiumHeader
-                subtitle=" "
+                subtitle="Strategic Supply Solutions"
                 title="Sourcing Agent"
                 accentColor="#c5a059"
             />

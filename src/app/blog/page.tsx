@@ -5,7 +5,7 @@ export default function BlogPage() {
         <main className="min-h-screen bg-white">
             {/* The dramatic entrance header */}
             <PremiumHeader
-                subtitle=" "
+                subtitle="Industry Insights & Updates"
                 title="Blog"
                 accentColor="#c5a059"
             />
