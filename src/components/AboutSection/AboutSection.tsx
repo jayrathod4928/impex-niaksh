@@ -7,7 +7,7 @@ import WhatWeDo from "@/components/WhatWeDo/WhatWeDo"; // Adjust the import path
 const AboutSection = () => {
     const aboutData = {
         title: "About Nipl",
-        imageSrc: "https://oesexportimport.com/wp-content/uploads/2020/07/OES-Desk.jpg",
+        imageSrc: "https://media.istockphoto.com/id/1332631240/photo/large-office-interior-a-reception-desk-a-lounge-corner-with-copy-space-and-wordesks-behind.jpg?s=612x612&w=0&k=20&c=g_tXVIl0ZhhacKoiL2kBA16YlF8kmctyRrP9YWVmuUs=",
         imageAlt: "Nipl Office Reception and Wooden Handicrafts",
         points: [
             "Nipl Export Import Pvt Ltd has created its own goodwill and a global reputation as primary exporters of Wooden Handicrafts.",
