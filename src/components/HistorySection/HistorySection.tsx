@@ -7,7 +7,7 @@ const COMPANY_DATA = {
     history: {
         title: "History & Location",
         points: [
-            "Founded in 2016 by visionary brothers Mr. Paresh & Mr. Sanjay with an interest to expand business globally.",
+            "Founded in 2016 by visionary Husband and Wife Mr. Ashvin barad & Mrs. Daksha barad with an interest to expand business globally.",
             "Strategically located in Ahmedabad, the western part of INDIA.",
             "Specializing in premium Handicrafts, Glass Products, Garments, Ceramic & Stone, and Home Decorative items.",
             "Initially established as a small-scale export operation focused on quality and cost-effectiveness.",

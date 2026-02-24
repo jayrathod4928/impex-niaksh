@@ -43,12 +43,8 @@ export default function FruitsPage() {
                 data={varietyFlours}
             />
             <ProductGrid
-                sectionTitle="Basmati Rice"
+                sectionTitle="Rice"
                 data={basmatiRice}
-            />
-            <ProductGrid
-                sectionTitle="Non-Basmati Rice"
-                data={nonBasmatiRice}
             />
         </main>
     );

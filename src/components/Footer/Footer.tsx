@@ -112,15 +112,17 @@ const Footer = () => {
                         {/* Social Icons */}
                         <div className="flex justify-center md:justify-start space-x-2 pt-4">
                             {[
-                                { icon: FaFacebookF, link: '#' },
-                                { icon: FaTwitter, link: '#' },
-                                { icon: FaInstagram, link: '#' },
-                                { icon: FaYoutube, link: '#' },
-                                { icon: FaLinkedinIn, link: '#' }
+                                { icon: FaFacebookF, link: 'https://www.facebook.com/share/1AfEhNrXci/' },
+                                { icon: FaTwitter, link: 'https://x.com/' },
+                                { icon: FaInstagram, link: 'https://www.instagram.com/niiaksh.impex?igsh=ZzhtbzkxMW1nZnRl' },
+                                { icon: FaYoutube, link: 'https://www.youtube.com/' },
+                                { icon: FaLinkedinIn, link: 'https://www.linkedin.com/' }
                             ].map((social, idx) => (
                                 <a
                                     key={idx}
                                     href={social.link}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
                                     className="bg-[#2d3748] p-2 rounded-md hover:bg-orange-500 transition-all duration-300 transform hover:-translate-y-1"
                                 >
                                     <social.icon className="text-white text-xs" />

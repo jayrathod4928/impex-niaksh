@@ -55,11 +55,6 @@ export default function SpicesPage() {
                 sectionTitle="Frozen Foods"
                 data={frozenFood}
             />
-
-            <ProductGrid
-                sectionTitle="Frozen Vegetables"
-                data={frozenVegetables}
-            />
         </main>
     );
 }
