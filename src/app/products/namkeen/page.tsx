@@ -1,7 +1,7 @@
 import PremiumHeader from "@/components/PremiumHeader/PremiumHeader";
 import ContentShowcase from "@/components/ContentShowcase/ContentShowcase";
 import ProductGrid from "@/components/Common/ProductGrid";
-import {namkeenProducts, frozenFood, frozenVegetables} from "@/app/products/namkeen/mock";
+import {namkeenProducts, frozenFood} from "@/app/products/namkeen/mock";
 
 const namkeenPoints = [
     "Indian salted Namkeen have earned the flavour of global customers due to their unique mix of sweet, salty, tangy and spicy flavours. The Namkeen from India are known for being delicious and healthy.",
