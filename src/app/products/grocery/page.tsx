@@ -1,6 +1,6 @@
 import ProductGrid from "@/components/Common/ProductGrid";
 import PremiumHeader from "@/components/PremiumHeader/PremiumHeader";
-import {varietyDal, varietyPulses, varietyFlours, basmatiRice, nonBasmatiRice } from "@/app/products/grocery/mock";
+import {varietyDal, varietyPulses, varietyFlours, basmatiRice } from "@/app/products/grocery/mock";
 import ContentShowcase from "@/components/ContentShowcase/ContentShowcase";
 
 const groceryPoints = [
