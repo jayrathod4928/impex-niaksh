@@ -10,7 +10,7 @@ const ceramicPoints = [
     "premium baked goods. Ceramic coatings cover the oven’s internal surface and make it scratch-free," +
     " easy-to-clean, and well insulated to ensure uniform temperature.  Even many washing machines " +
     "and dryers are coated with a porcelain enamel that is ant scratch, stain resistant and resistant" +
-    " to chemicals.>Ceramic has been in use for over millions of years and is found healthy l and safe" +
+    " to chemicals.Ceramic has been in use for over millions of years and is found healthy l and safe" +
     " for food. It has been observed that ingredients that form ceramic are considered non-toxic.",
     ];
 const stonePoints = [
