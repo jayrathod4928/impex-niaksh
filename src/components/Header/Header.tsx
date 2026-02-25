@@ -169,7 +169,7 @@ const Header = () => {
                     </nav>
 
                     <div className={styles.drawerFooter}>
-                        <p>© 2026 OES Export Import Pvt Ltd.</p>
+                        <p>© 2026 NIPL Export Import Pvt Ltd.</p>
                     </div>
                 </div>
             </div>

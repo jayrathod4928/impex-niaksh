@@ -58,7 +58,7 @@ const Certification: React.FC = () => {
                     <motion.div variants={itemVariants} className="space-y-8">
                         <p className="text-gray-500 text-xl md:text-2xl leading-relaxed font-light max-w-4xl mx-auto">
                             We are pleased to inform you that
-                            <span className="text-black font-normal uppercase tracking-wide px-2"> OES Export Import Pvt Ltd </span>
+                            <span className="text-black font-normal uppercase tracking-wide px-2"> NIPL Export Import Pvt Ltd </span>
                             is certified by the
                             <span className="text-black font-normal"> Government of India </span>
                             according to the following standards.
