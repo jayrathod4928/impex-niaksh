@@ -22,7 +22,7 @@ const Footer = () => {
     const productLinks = [
         { name: 'Garments', href: '/products/garments' },
         { name: 'Surgical Equipment', href: '/products/surgical-equipment' },
-        { name: 'Leather Products', href: '/products/leather-products' },
+        { name: 'Leather Products', href: '/products/leather' },
         { name: 'Imitation Jewellery', href: '/products/jewellery' },
         { name: 'Handicrafts', href: '/products/handicraft' },
         { name: 'Furniture', href: '/products/furniture' },
