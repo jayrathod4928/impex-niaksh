@@ -19,7 +19,17 @@ const Footer = () => {
         // eslint-disable-next-line react-hooks/set-state-in-effect
         setCurrentYear(new Date().getFullYear());
     }, []);
-
+    const productLinks = [
+        { name: 'Garments', href: '/products/garments' },
+        { name: 'Surgical Equipment', href: '/products/surgical-equipment' },
+        { name: 'Leather Products', href: '/products/leather-products' },
+        { name: 'Imitation Jewellery', href: '/products/jewellery' },
+        { name: 'Handicrafts', href: '/products/handicraft' },
+        { name: 'Furniture', href: '/products/furniture' },
+        { name: 'Ceramic & Stone', href: '/products/ceramic' },
+        { name: 'Copper Products', href: '/products/copper-products' },
+        { name: 'Packaging Products', href: '/products/packaging-products' },
+    ];
     const containerVariants = {
         hidden: { opacity: 0, y: 20 },
         visible: {
@@ -85,11 +95,14 @@ const Footer = () => {
                 <motion.div variants={itemVariants} className="flex flex-col items-center md:items-start text-center md:text-left">
                     <h3 className="text-lg font-semibold mb-6 border-b-2 border-orange-500 w-fit pb-1">Products</h3>
                     <ul className="space-y-3">
-                        {['Handicrafts', 'Copper Products', 'Garments', 'Ceramic & Stone', 'Packaging Products'].map((item) => (
-                            <li key={item}>
-                                <Link href="#" className="text-orange-500 hover:text-white text-sm transition-colors duration-300 flex items-center justify-center md:justify-start group">
+                        {productLinks.map((product) => (
+                            <li key={product.name}>
+                                <Link
+                                    href={product.href}
+                                    className="text-orange-500 hover:text-white text-sm transition-colors duration-300 flex items-center justify-center md:justify-start group"
+                                >
                                     <span className="mr-2 opacity-0 group-hover:opacity-100 transition-all transform -translate-x-2 group-hover:translate-x-0 hidden lg:inline">»</span>
-                                    {item}
+                                    {product.name}
                                 </Link>
                             </li>
                         ))}
@@ -100,13 +113,20 @@ const Footer = () => {
                 <motion.div variants={itemVariants} className="flex flex-col items-center md:items-start text-center md:text-left">
                     <h3 className="text-lg font-semibold mb-6 border-b-2 border-orange-500 w-fit pb-1">Contact Us</h3>
                     <div className="space-y-4 w-full">
-                        <a href="mailto:info@nipl.com" className="flex items-center justify-center md:justify-start text-orange-500 hover:text-white text-sm transition-all group">
+                        <a href="mailto:niiakshimpex@gmail.com" className="flex items-center justify-center md:justify-start text-orange-500 hover:text-white text-sm transition-all group">
                             <FaEnvelope className="mr-3 text-base group-hover:scale-110 transition-transform" />
-                            <span className="break-all">info@nipl.com</span>
+                            <span className="break-all">niiakshimpex@gmail.com</span>
                         </a>
-                        <div className="flex items-start justify-center md:justify-start text-orange-500 text-sm">
+                        <div className="flex items-start justify-center md:justify-start text-orange-500 text-sm max-w-sm md:max-w-none mx-auto md:mx-0">
+                            {/* shrink-0 prevents the icon from squishing when text wraps */}
                             <FaMapMarkerAlt className="mr-3 mt-1 text-base shrink-0" />
-                            <span>Ahmedabad, Gujarat, India</span>
+
+                            {/* leading-relaxed improves readability on mobile */}
+                            <span className="leading-relaxed text-center md:text-left">
+                                A-701 SHARNAM ELEGANCE,<br className="hidden md:block" />
+                                Nr. Karnavati Enclave, Doon School Road,<br />
+                                New Maninagar, Ramol, Ahmedabad - 382449
+                            </span>
                         </div>
 
                         {/* Social Icons */}
