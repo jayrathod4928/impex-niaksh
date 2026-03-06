@@ -136,7 +136,7 @@ const Footer = () => {
             {/* Copyright */}
             <div className="mt-16 pt-8 border-t border-gray-700 text-center">
                 <p className="text-orange-500 text-xs font-medium tracking-wide px-4">
-                    &copy; 2026 All Rights Reserved NIPL Pvt Ltd. Designed by SEULUXE.
+                    &copy; 2026 All Rights Reserved NIPL Pvt Ltd. Designed by Krunix Tech & Graphics.
                 </p>
             </div>
         </footer>

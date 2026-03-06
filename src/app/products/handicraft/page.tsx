@@ -18,7 +18,7 @@ export default function KeyPersonPage() {
                 accentColor="#c5a059"
             />
             <ContentShowcase
-                title="About Bed sheet Products"
+                title="About Handicraft Products"
                 points={handiCraftsPoints}
                 imageSrc="https://oesexportimport.com/wp-content/uploads/2020/07/Wooden-Gift-Items-1.jpg"
                 imageAlt="Assorted tropical and seasonal fruits from India"

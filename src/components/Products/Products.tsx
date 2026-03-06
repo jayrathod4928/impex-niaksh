@@ -24,7 +24,7 @@ const products: Product[] = [
     { id: 9, title: "Leather Products", link: "/products/leather", img: "https://images.unsplash.com/photo-1524289286702-f07229da36f5?q=80&w=2070&auto=format&fit=crop", desc: "Leather products are highly coveted for their classy look and feel. Be its shoes, bags or jackets, pure leather products can always be set apart from synthetics..." },
     { id: 10, title: "Garment Products", link: "/products/garments", img: "https://images.unsplash.com/photo-1523381210434-271e8be1f52b?q=80&w=2070&auto=format&fit=crop", desc: "Garments could be classified based on several aspects as there is no standard classification system available. However, the garments could be..." },
     { id: 11, title: "Ceramic & Stone", link: "/products/ceramic", img: "https://oesexportimport.com/wp-content/uploads/2020/11/Ceramic-Stone-Products.jpg", desc: "Ceramics are classified as inorganic and nonmetallic materials that are essential to our daily lifestyle. Ceramic and materials engineers are the..." },
-    { id: 12, title: "Packaging Products", link: "/products/packaging-products", img: "https://images.unsplash.com/photo-1589939705384-5185137a7f0f?q=80&w=2070&auto=format&fit=crop", desc: "OES Export Import Pvt Ltd packaging Products are known for their quality, durability and the precision they come with. As a quality..." }
+    { id: 12, title: "Packaging Products", link: "/products/packaging-products", img: "https://images.unsplash.com/photo-1589939705384-5185137a7f0f?q=80&w=2070&auto=format&fit=crop", desc: "NIP Export Import Pvt. Ltd. packaging Products are known for their quality, durability and the precision they come with. As a quality..." }
 ];
 
 // 2. Explicitly type these objects as Variants

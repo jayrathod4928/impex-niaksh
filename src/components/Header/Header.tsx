@@ -84,6 +84,7 @@ const Header = () => {
                                 </div>
                             </div>
                             <Link href="/products/garments" className={isActive('/products/garments') ? styles.active : ''}>Garments</Link>
+                            <Link href="/products/surgical-equipment" className={isActive('/products/surgical-equipment') ? styles.active : ''}>Surgical Equipment</Link>
                             <Link href="/products/leather" className={isActive('/products/leather') ? styles.active : ''}>Leather Products</Link>
                             <Link href="/products/jewellery" className={isActive('/products/jewellery') ? styles.active : ''}>Imitation Jewellery</Link>
                             <Link href="/products/handicraft" className={isActive('/products/handicraft') ? styles.active : ''}>Handicraft</Link>
@@ -153,6 +154,7 @@ const Header = () => {
                                 </div>
 
                                 <Link href="/products/garments" className={isActive('/products/garments') ? styles.mobileActive : ''} onClick={closeAll}>Garments</Link>
+                                <Link href="/products/surgical-equipment" className={isActive('/products/surgical-equipment') ? styles.mobileActive : ''} onClick={closeAll}>Surgical Equipment</Link>
                                 <Link href="/products/leather" className={isActive('/products/leather') ? styles.mobileActive : ''} onClick={closeAll}>Leather Products</Link>
                                 <Link href="/products/jewellery" className={isActive('/products/jewellery') ? styles.mobileActive : ''} onClick={closeAll}>Imitation Jewellery</Link>
                                 <Link href="/products/handicraft" className={isActive('/products/handicraft') ? styles.mobileActive : ''} onClick={closeAll}>Handicraft</Link>
