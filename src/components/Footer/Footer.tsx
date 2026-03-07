@@ -6,7 +6,7 @@ import Image from 'next/image';
 import { motion } from 'framer-motion';
 import {
     FaFacebookF, FaTwitter, FaInstagram,
-    FaYoutube, FaLinkedinIn, FaEnvelope, FaMapMarkerAlt
+    FaYoutube, FaLinkedinIn, FaEnvelope, FaMapMarkerAlt,FaPhoneAlt
 } from 'react-icons/fa';
 
 // Import your logo
@@ -113,20 +113,26 @@ const Footer = () => {
                 <motion.div variants={itemVariants} className="flex flex-col items-center md:items-start text-center md:text-left">
                     <h3 className="text-lg font-semibold mb-6 border-b-2 border-orange-500 w-fit pb-1">Contact Us</h3>
                     <div className="space-y-4 w-full">
+                        {/* Email */}
                         <a href="mailto:niiakshimpex@gmail.com" className="flex items-center justify-center md:justify-start text-orange-500 hover:text-white text-sm transition-all group">
                             <FaEnvelope className="mr-3 text-base group-hover:scale-110 transition-transform" />
                             <span className="break-all">niiakshimpex@gmail.com</span>
                         </a>
-                        <div className="flex items-start justify-center md:justify-start text-orange-500 text-sm max-w-sm md:max-w-none mx-auto md:mx-0">
-                            {/* shrink-0 prevents the icon from squishing when text wraps */}
-                            <FaMapMarkerAlt className="mr-3 mt-1 text-base shrink-0" />
 
-                            {/* leading-relaxed improves readability on mobile */}
+                        {/* Phone Number */}
+                        <a href="tel:+919738928888" className="flex items-center justify-center md:justify-start text-orange-500 hover:text-white text-sm transition-all group">
+                            <FaPhoneAlt className="mr-3 text-base group-hover:scale-110 transition-transform" />
+                            <span>+91 9738928888</span>
+                        </a>
+
+                        {/* Address */}
+                        <div className="flex items-start justify-center md:justify-start text-orange-500 text-sm max-w-sm md:max-w-none mx-auto md:mx-0">
+                            <FaMapMarkerAlt className="mr-1.5 mt-1 text-base shrink-0" />
                             <span className="leading-relaxed text-center md:text-left">
-                                A-701 SHARNAM ELEGANCE,<br className="hidden md:block" />
-                                Nr. Karnavati Enclave, Doon School Road,<br />
-                                New Maninagar, Ramol, Ahmedabad - 382449
-                            </span>
+                A-701 SHARNAM ELEGANCE,<br className="hidden md:block" />
+                Nr. Karnavati Enclave, Doon School Road,<br />
+                New Maninagar, Ramol, Ahmedabad - 382449
+            </span>
                         </div>
 
                         {/* Social Icons */}

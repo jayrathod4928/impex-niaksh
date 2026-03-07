@@ -9,7 +9,7 @@ import styles from './Testimonials.module.scss';
 const testimonials = [
     {
         name: "Elias Meier",
-        text: "Our experience with OES Export Import for packaging products has been fantastic. Their commitment to European quality standards and professionalism sets them apart.",
+        text: "Our experience with NIPL Export Import for packaging products has been fantastic. Their commitment to European quality standards and professionalism sets them apart.",
         location: "Berlin, Germany",
         image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=200&h=200&auto=format&fit=crop"
     },
@@ -33,7 +33,7 @@ const testimonials = [
     },
     {
         name: "Chen Wei",
-        text: "Professionalism at its best. OES handles high-volume orders with precision. Their attention to detail in quality control is what keeps our partnership strong.",
+        text: "Professionalism at its best. NIPL handles high-volume orders with precision. Their attention to detail in quality control is what keeps our partnership strong.",
         location: "Shanghai, China",
         image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=200&h=200&auto=format&fit=crop"
     },
