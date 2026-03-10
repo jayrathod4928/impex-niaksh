@@ -80,11 +80,23 @@ const Footer = () => {
                 <motion.div variants={itemVariants} className="flex flex-col items-center md:items-start text-center md:text-left">
                     <h3 className="text-lg font-semibold mb-6 border-b-2 border-orange-500 w-fit pb-1">Quick Links</h3>
                     <ul className="space-y-3">
-                        {['Home', 'About Us', 'About Key Person', 'About Certification', 'Sourcing Agent', 'Contact Us'].map((item) => (
-                            <li key={item}>
-                                <Link href="#" className="text-orange-500 hover:text-white text-sm transition-colors duration-300 flex items-center justify-center md:justify-start group">
-                                    <span className="mr-2 opacity-0 group-hover:opacity-100 transition-all transform -translate-x-2 group-hover:translate-x-0 hidden lg:inline">»</span>
-                                    {item}
+                        {[
+                            { name: 'Home', path: '/' },
+                            { name: 'About Us', path: '/about-company' },
+                            { name: 'About Key Person', path: '/key-person' },
+                            { name: 'About Certification', path: '/certification' },
+                            { name: 'Sourcing Agent', path: '/sourcing-agent' },
+                            { name: 'Contact Us', path: '/contact-us' }
+                        ].map((item) => (
+                            <li key={item.name}>
+                                <Link
+                                    href={item.path}
+                                    className="text-orange-500 hover:text-white text-sm transition-colors duration-300 flex items-center justify-center md:justify-start group"
+                                >
+                    <span className="mr-2 opacity-0 group-hover:opacity-100 transition-all transform -translate-x-2 group-hover:translate-x-0 hidden lg:inline">
+                        »
+                    </span>
+                                    {item.name}
                                 </Link>
                             </li>
                         ))}
