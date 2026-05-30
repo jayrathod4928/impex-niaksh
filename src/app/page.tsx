@@ -6,6 +6,7 @@ import Products from "@/components/Products/Products";
 import WhyChooseUs from "@/components/WhyChooseUs/WhyChooseUs";
 import Testimonials from "@/components/Testimonials/Testimonials";
 import CertificationTestimonial from "@/components/CertificationTestimonial/CertificationTestimonial";
+import GlobalMarket from "@/components/GlobalMarket/GlobalMarket";
 
 export default function Home() {
     return (
@@ -28,6 +29,9 @@ export default function Home() {
                     </ScrollReveal>
                     <ScrollReveal>
                         <Testimonials />
+                    </ScrollReveal>
+                    <ScrollReveal>
+                        <GlobalMarket />
                     </ScrollReveal>
                     <ScrollReveal>
                         <CertificationTestimonial />

@@ -20,6 +20,21 @@ const SLIDES = [
         image: "http://oesexportimport.com/wp-content/uploads/2024/11/165.webp",
         link: "/services/logistics"
     },
+    {
+        id: 2,
+        title: "World Class Logistic Solutions",
+        subtitle: "Safe, Secure, and Timely Global Delivery",
+        image: "https://img.magnific.com/free-photo/industrial-port-container-yard_1112-1200.jpg?ga=GA1.1.1755562317.1780123937&semt=ais_test_b&w=740&q=80"
+        ,
+        link: "/services/shipping"
+    },
+    {
+        id: 3,
+        title: "Empowering International Trade",
+        subtitle: "Your Trusted Partner for Global Import & Export",
+        image: "https://img.magnific.com/free-photo/aerial-view-cargo-ship-cargo-container-harbor_335224-1374.jpg?ga=GA1.1.1755562317.1780123937&semt=ais_test_b&w=740&q=80",
+        link: "/about"
+    },
 ];
 
 const HeroSlider = () => {
