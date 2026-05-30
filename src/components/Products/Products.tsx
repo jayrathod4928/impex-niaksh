@@ -56,7 +56,7 @@ const Products = () => {
         const formData = new FormData(e.currentTarget);
 
         // Using your provided Access Key
-        formData.append("access_key", "922d2657-22e5-4327-97b9-0ee4660cf730");
+        formData.append("access_key", "3a94af5f-861f-431c-b01a-81117f009827");
         formData.append("subject", `New Inquiry: ${selectedProduct?.title}`);
         formData.append("from_name", "NIPL Export Portal");
 

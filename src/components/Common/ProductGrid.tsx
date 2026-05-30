@@ -8,12 +8,13 @@ interface ProductData {
     id: number | string;
     title: string;
     image: string;
+    description?: string; // Optional product-specific description if needed later
 }
 
 interface ProductGridProps {
     sectionTitle: string;
+    sectionDescription?: string; // New prop added for the subtitle description below the main title
     data: ProductData[];
-    // Added condition prop here
     showUnderline?: boolean;
 }
 
@@ -25,7 +26,7 @@ const containerVariants: Variants = {
         y: 0,
         transition: {
             duration: 0.6,
-            staggerChildren: 0.01, // Staggers each product card by 0.1s
+            staggerChildren: 0.01, // Staggers each product card
             ease: "easeOut"
         }
     }
@@ -33,6 +34,7 @@ const containerVariants: Variants = {
 
 const ProductGrid: React.FC<ProductGridProps> = ({
                                                      sectionTitle,
+                                                     sectionDescription,
                                                      data,
                                                      showUnderline = true
                                                  }) => {
@@ -40,7 +42,6 @@ const ProductGrid: React.FC<ProductGridProps> = ({
     const [mounted, setMounted] = useState(false);
 
     useEffect(() => {
-        // eslint-disable-next-line react-hooks/set-state-in-effect
         setMounted(true);
     }, []);
 
@@ -66,16 +67,23 @@ const ProductGrid: React.FC<ProductGridProps> = ({
     }, [selectedProduct]);
 
     return (
-        <section className="py-9 md:py-5 px-4 md:px-6 max-w-7xl mx-auto">
+        <section className="py-9 md:py-16 px-4 md:px-6 max-w-7xl mx-auto">
             {/* Header Area */}
-            <div className="flex flex-col items-center mb-10 md:mb-16">
-                <h2 className="text-2xl md:text-5xl font-extrabold text-slate-900 text-center tracking-tight leading-tight">
+            <div className="flex flex-col items-center mb-10 md:mb-16 max-w-3xl mx-auto text-center">
+                <h2 className="text-2xl md:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight">
                     {sectionTitle}
                 </h2>
 
                 {/* Conditional Rendering of the Underline */}
                 {showUnderline && (
-                    <div className="w-16 md:w-24 h-1 md:h-1.5 bg-amber-600 mt-4 md:mt-6 rounded-full" />
+                    <div className="w-16 md:w-24 h-1 md:h-1.5 bg-amber-600 mt-3 md:mt-4 rounded-full" />
+                )}
+
+                {/* Section Description Rendering Block */}
+                {sectionDescription && (
+                    <p className="mt-4 md:mt-6 text-sm md:text-base text-slate-500 font-medium leading-relaxed tracking-wide">
+                        {sectionDescription}
+                    </p>
                 )}
             </div>
 
@@ -90,7 +98,7 @@ const ProductGrid: React.FC<ProductGridProps> = ({
                 {data.map((item, index) => (
                     <div
                         key={item.id}
-                        className="w-[calc(50%-1rem)] lg:w-[calc(25%-2rem)] min-w-[150px] max-w-[300px]"
+                        className="w-[calc(50%-1rem)] lg:w-[calc(25%-2rem)] min-w-[150px] max-w-[300px] cursor-pointer"
                         onClick={() => setSelectedProduct(item)}
                     >
                         <ProductCard
@@ -143,8 +151,14 @@ const ProductGrid: React.FC<ProductGridProps> = ({
                                     <h3 className="text-xl md:text-2xl font-bold text-slate-800 uppercase tracking-widest">
                                         {selectedProduct.title}
                                     </h3>
-                                    {/* Notice I added the same condition here if you want to hide the underline in the modal too */}
                                     {showUnderline && <div className="w-12 h-0.5 bg-amber-500 mx-auto mt-2" />}
+
+                                    {/* Optional: Individual Product Description inside Lightbox */}
+                                    {selectedProduct.description && (
+                                        <p className="mt-3 text-sm text-slate-500 max-w-md mx-auto normal-case tracking-normal">
+                                            {selectedProduct.description}
+                                        </p>
+                                    )}
                                 </div>
                             </motion.div>
                         </motion.div>

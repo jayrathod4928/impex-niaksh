@@ -1,6 +1,6 @@
 import PremiumHeader from "@/components/PremiumHeader/PremiumHeader";
 import ContentShowcase from "@/components/ContentShowcase/ContentShowcase";
-import {jewelleryProucts} from "@/app/products/jewellery/mock";
+import {jewelleryProducts} from "@/app/products/jewellery/mock";
 import ProductGrid from "@/components/Common/ProductGrid";
 
 const jewelleryPoints = [
@@ -27,7 +27,7 @@ export default function KeyPersonPage() {
             />
             <ProductGrid
                 sectionTitle="Imitation Jewellery Products"
-                data={jewelleryProucts}
+                data={jewelleryProducts}
             />
         </main>
     );

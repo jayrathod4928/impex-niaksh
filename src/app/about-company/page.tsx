@@ -17,7 +17,7 @@ export default function AboutCompanyPage() {
             {/* Current Stage Section */}
             <ContentShowcase
                 title="Current stage of company"
-                imageSrc="https://media.istockphoto.com/id/1333816158/photo/large-office-interior-a-reception-desk-a-lounge-corner-with-copy-space-and-wordesks-behind.jpg?s=612x612&w=0&k=20&c=kp4LrcxTmV9Jj7QjR2cHieaN9urXviCqBNMl26aInHg="
+                imageSrc="/images/Office Image.jpeg"
                 imageAlt="NIP Export Import Office Reception"
                 points={[
                     "Currently the company serves products to many countries around the world, with main markets in America, Latin America, Europe, Asia, and Australia.",
