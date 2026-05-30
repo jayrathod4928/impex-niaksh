@@ -1,7 +1,7 @@
 import PremiumHeader from "@/components/PremiumHeader/PremiumHeader";
 import ContentShowcase from "@/components/ContentShowcase/ContentShowcase";
 import ProductGrid from "@/components/Common/ProductGrid";
-import {ceramicProducts} from "@/app/products/furniture/mock";
+import {furnitureProducts} from "@/app/products/furniture/mock";
 
 const furniturePoints = [
     "If you’re facing an empty house or a big remodel, you’ve got big choices to make. Before you decide how to fill your home, " +
@@ -31,7 +31,7 @@ export default function KeyPersonPage() {
             {/* Product Listing Section */}
             <ProductGrid
                 sectionTitle="Furniture Products"
-                data={ceramicProducts}
+                data={furnitureProducts}
             />
         </main>
     );
